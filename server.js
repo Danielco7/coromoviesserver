@@ -26,9 +26,7 @@ app.use('/api/Members',memberrouts)
 app.use('/api/Movies',movierouts)
 app.use('/api/Subs',subsrouts)
 
-const PORT = process.env.PORT || 3001;
-
-app.use(express.static(path.resolve(__dirname, '/public/index.html')));
+const PORT = process.env.PORT || 3000;
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
