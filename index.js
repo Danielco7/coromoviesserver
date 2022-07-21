@@ -7,7 +7,7 @@ const subsrouts = require('./routes/subs')
 const path = require('path');
 
 const connectDBu = require('./config/database_users');
-const connectDBs = require('./config/dataabase');
+// const connectDBs = require('./config/dataabase');
 const { db } = require('./models/usersmodels')
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
-connectDBs()
+// connectDBs()
 connectDBu();
 
 app.use('/api/Users/',usersrouts)
