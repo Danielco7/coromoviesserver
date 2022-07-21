@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d5ef7606.css",
+    "main.js": "/static/js/main.bba0ab28.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/—Pngtree—the background of the movie_869718.png": "/static/media/—Pngtree—the background of the movie_869718.09e26b4b3c32f79da155.png",
+    "static/media/signup.jpg": "/static/media/signup.7252a87851879bfebe55.jpg",
+    "static/media/background.jpg": "/static/media/background.da83690fc913d15961ac.jpg",
+    "static/media/workers.jpg": "/static/media/workers.4f16fc8ff00964d4fb11.jpg",
+    "static/media/kisspng-roll-film-logo-cinema-roll-5abe468859c0a0.png": "/static/media/kisspng-roll-film-logo-cinema-roll-5abe468859c0a0.4946769715224193363676.c90bb2d6c45681538d59.png",
+    "static/media/istockphoto-1132715308-612x612.jpg": "/static/media/istockphoto-1132715308-612x612.d16af0c77068a0ea441c.jpg",
+    "index.html": "/index.html",
+    "main.d5ef7606.css.map": "/static/css/main.d5ef7606.css.map",
+    "main.bba0ab28.js.map": "/static/js/main.bba0ab28.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5ef7606.css",
+    "static/js/main.bba0ab28.js"
+  ]
+}
