@@ -5,10 +5,12 @@ const memberrouts = require('./routes/members')
 const movierouts = require('./routes/movie')
 const subsrouts = require('./routes/subs')
 const path = require('path');
+const mongoose = require('mongoose');
 
 // const connectDBu = require('./config/database_users');
 const connectDBs = require('./config/dataabase');
 const { db } = require('./models/usersmodels')
+const { Mongoose } = require('mongoose')
 
 const app = express();
 
@@ -21,12 +23,20 @@ app.use(express.json());
 connectDBs()
 // connectDBu();
 
+mongoose.connect(process.env.MONGODV_URI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+
 app.use('/api/Users/',usersrouts)
 app.use('/api/Members',memberrouts)
 app.use('/api/Movies',movierouts)
 app.use('/api/Subs',subsrouts)
 
 const PORT = process.env.PORT || 3001;
+
+
+
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });

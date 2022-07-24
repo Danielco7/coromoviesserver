@@ -13,7 +13,7 @@ const connectDBs = () => {
 const dbs = mongoose.connection;
 dbs.on("error", console.error.bind(console, "connection error: "));
 dbs.once("open", function () {
-    console.log("Connected successfully");
+    console.log("Connected successfully1");
 });
 
 
