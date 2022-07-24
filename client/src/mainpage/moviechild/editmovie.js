@@ -47,7 +47,9 @@ function EditMovie(props) {
       }
       const Cancel=async()=>  props.cancel()
 
-    return <div className='EditMovie'  >
+    return <div className='EditMovie'>
+        <div className='edit_img_cont'><img className='edit_img' src={props.movie.image}/></div>
+        <div className='movie_edit_info'>
     Name:<input className='EditMovieInput' defaultValue={props.movie.name} onChange={e => {setMovie({ ...Movie, name: e.target.value })
     setname(e.target.value)}} /> <br></br>
     <span className="text-danger">{nameErr}</span> <br></br>
@@ -68,6 +70,7 @@ function EditMovie(props) {
     <button className='EditMovieButtons' onClick={Check_And_Send}>Update</button>
     <button className='EditMovieButtons' onClick={Cancel}>cancel</button>
     </div>
+        </div>
         </div>
 }
 export default EditMovie

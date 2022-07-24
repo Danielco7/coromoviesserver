@@ -84,8 +84,8 @@ function MainRouter({ match ,history}) {
         <div className='logo' onClick={refreshPage}>coromovies</div>
         <div id='nav'>
         <a>{user.admin? <button onClick={Movies} className="ul">Movies</button>:Check_View_Movie_Permission==="View Movies"? <button onClick={Movies} className="ul">Movies</button>:null}</a>
-         <a>{user.admin? <button onClick={Subs} className="ul">Subscriptions</button>:Check_View_Subs_Permission==="View Subscriptions"? <button onClick={Subs} className="ul">Subscriptions</button>:null}</a>
-          <a>{user.admin? <button onClick={Users} className="ul">Users</button>:null}</a>
+         <a>{user.admin? <button onClick={Subs} className="ul">Members</button>:Check_View_Subs_Permission==="View Subscriptions"? <button onClick={Subs} className="ul">Members</button>:null}</a>
+          <a>{user.admin? <button onClick={Users} className="ul">Workers</button>:null}</a>
          <a> <button onClick={logout} className="ul">Log Out</button></a>
         </div>
             </div>

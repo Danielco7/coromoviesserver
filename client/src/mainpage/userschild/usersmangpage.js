@@ -92,7 +92,7 @@ function UsersPage(props) {
 
 
 <div className="container" >
-        <img src={users} alt="logo" id='imgbackground'/>
+        <div id='users_imgbackground'/>
         <h1 id='titlee'>Users</h1>
         <div>{checknewuser?<button onClick={allusers} className="btnn">all users</button>:null}
         {checkedit?<button onClick={allusers} className="btnn">all users</button>:null}
