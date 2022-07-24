@@ -1,7 +1,6 @@
 const express = require('express');
 const usersBLL = require('../BLL/usersBLL');
 const memberBLL =require('../BLL/memberBLL')
-const movieBLL =require('../BLL/movieBLL')
 const router = express.Router();
 
 
@@ -63,12 +62,4 @@ router.get('/member', async (req, res) => {
         res.send(error);
     }
 })
-// router.get('/movie', async (req, res) => {
-//     try {
-//         const movies = await movieBLL.getAllMovies();
-//         res.send(movies);
-//     } catch (error) {
-//         res.send(error);
-//     }
-// })
 module.exports = router;

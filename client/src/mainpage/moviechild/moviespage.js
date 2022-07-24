@@ -9,7 +9,6 @@ import Movie from './movie';
 import AddMovie from './addmovie';
 import EditMovie from './editmovie';
 import ShowMovie from './Movieshower';
-import logo from '../../—Pngtree—the background of the movie_869718.png';
 
 
 // import Movieurl from '../../api/movies'
@@ -141,11 +140,12 @@ const membertoshow= async(e)=> props.showmember(e)
 const imgclick=async(e)=> {
   await setMovieToShow('');
     await setMovieToShow(e);
+    window.scrollTo(0, 1000);
   }
  
     return <div className='moviepage'>
       <div className="container">
-        <img src={logo} alt="logo" id='imgbackground'/>
+        <div id='imgbackground'/>
         <h1 id='titlee'>Movies</h1>
         <div>{DisplayAddMoviePage?<button onClick={allmovies} className="btnn">all movies</button>:null}
         {DisplayEditMoviePage?<button onClick={allmovies} className="btnn">all movies</button>:null}
@@ -158,40 +158,45 @@ const imgclick=async(e)=> {
     </div>
   </div>
 </div>:null}
-        </div>
+        </div><br></br>
         {MovieToShow.name!==undefined?<ShowMovie cancel={allmovies} update={updatemovie} displaymember={membertoshow} movie={MovieToShow} user={props.user} subs={props.subs}/>:null}
         {DisplayAllMovies?
-        <div className=' innerswiper' >
-            {Movies.length > 0 ? window.innerWidth>1068 ? <div id='slider123'>  
+        <div className='innerswiper' >
+            {Movies.length > 0 ?  <div id='slider123'>  
              <Swiper
       spaceBetween={40}
       slidesPerView={5}
       centeredSlides
       centeredSlidesBounds
       freeMode={true}
-      slidesOffsetBefore= {70}
-		  slidesOffsetAfter= {70}
+      slidesOffsetBefore= {0}
+		  slidesOffsetAfter= {-770}
       navigation
       watchSlidesVisibility={true}
       breakpoints={{
         320 : {
-            width: 320,
+            width: 190,
+		        slidesOffsetAfter: 370,
+            spaceBetween:10,
             slidesPerView: 1,
           },
           481 : {
-            width: 320,
+            width: 190,
+		        slidesOffsetAfter: 370,
+            spaceBetween:10,
             slidesPerView: 1,
           },
         640: {
-          width: 481,
-          slidesPerView: 2,
+          width: 190,
+          slidesOffsetAfter: 370,
+          spaceBetween:10,
+          slidesPerView: 1,
         },
         768: {
           width: 540,
           slidesPerView: 2,
         },
       }}
-      
     >
         {Movies.map((movie, index) => {
             return <SwiperSlide key={index}>
@@ -200,15 +205,7 @@ const imgclick=async(e)=> {
     })}
      
     </Swiper> </div> :
-    <div className='mobile_map_display'>
-
-    {Movies.map((movie, index) => {
-      return <div key={index}>
-        <Movie counter={index} key={index} movie={movie} user={props.user} subs={props.subs} Delete={Delete} Edit={Editthismovie} displaymember={membertoshow} imgclicker={imgclick} />
-        </div>
-    })}
-    
-     </div>  :
+   
                <h2>No Movies</h2>
      }
              </div>:null}

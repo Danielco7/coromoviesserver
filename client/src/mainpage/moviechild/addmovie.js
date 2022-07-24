@@ -40,10 +40,10 @@ const Check_And_Send =async()=> {
       const Cancel=async()=>  props.cancel()
 
     return <div className='AddMovie' >
-      <h1> New Member: </h1>
+      <h1> New Movie: </h1>
 
         Name:<input className='AddMovieInput'  onChange={e => {setMovie({ ...Movie, name: e.target.value })
-        setname(e.target.value)}} /> <br></br>
+        setname(e.target.value)}} /><br></br>
         <span className="text-danger">{nameErr}</span> <br></br>
 
         Genres: <input className='AddMovieInput'  onChange={e => {setMovie({ ...Movie, genres: e.target.value })

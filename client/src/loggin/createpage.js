@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getAll,updateObj} from '../utils';
-import logo from '../kisspng-roll-film-logo-cinema-roll-5abe468859c0a0.4946769715224193363676.png';
 
 const url = "http://localhost:3001/api/Users"
 
@@ -35,7 +34,6 @@ function Create({history}) {
     const Goback=()=>  history.push(`/`); 
     
     return <div className='logginbody'>
-        <img src={logo} className='logo'/>
 
         <br />
         Username: <input name='username' onChange={e => setsignupUser({ ...user, username: e.target.value })}></input> <br />

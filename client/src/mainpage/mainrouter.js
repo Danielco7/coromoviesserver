@@ -3,7 +3,7 @@ import { getAll} from '../utils';
 import MoviesPage from '../mainpage/moviechild/moviespage';
 import UsersPage from './userschild/usersmangpage';
 import SubsPage from './subschild/subsmainpage';
-import logo from '../kisspng-roll-film-logo-cinema-roll-5abe468859c0a0.4946769715224193363676.png';
+import '../css/menu.css';
 const urlusers = "http://localhost:3001/api/Users"
 
 function MainRouter({ match ,history}) {
@@ -81,11 +81,11 @@ function MainRouter({ match ,history}) {
 
         
         <div className='menu' >
-        <img src={logo} className='logo' onClick={refreshPage}/>
+        <div className='logo' onClick={refreshPage}>coromovies</div>
         <div id='nav'>
         <a>{user.admin? <button onClick={Movies} className="ul">Movies</button>:Check_View_Movie_Permission==="View Movies"? <button onClick={Movies} className="ul">Movies</button>:null}</a>
          <a>{user.admin? <button onClick={Subs} className="ul">Subscriptions</button>:Check_View_Subs_Permission==="View Subscriptions"? <button onClick={Subs} className="ul">Subscriptions</button>:null}</a>
-          <a>{user.admin? <button onClick={Users} className="ul">Users Mangment</button>:null}</a>
+          <a>{user.admin? <button onClick={Users} className="ul">Users</button>:null}</a>
          <a> <button onClick={logout} className="ul">Log Out</button></a>
         </div>
             </div>
