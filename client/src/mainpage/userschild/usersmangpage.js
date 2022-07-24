@@ -9,7 +9,7 @@ import SwiperCore,{Navigation,Pagination} from 'swiper';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 
-const usersurl = "http://localhost:3001/api/Users"
+const usersurl = "https://coromovies.herokuapp.com/api/Users"
 
 function UsersPage(props) {
     const [Users, setusers] = useState({})

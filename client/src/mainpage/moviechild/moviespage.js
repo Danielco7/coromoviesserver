@@ -33,7 +33,7 @@ function MoviesPage(props) {
 
 
 
-    const urlmovie = "http://localhost:3001/api/Movies"
+    const urlmovie = "https://coromovies.herokuapp.com/api/Movies"
 
     useEffect(() => {
         let counter=0

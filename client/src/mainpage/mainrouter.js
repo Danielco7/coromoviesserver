@@ -4,7 +4,7 @@ import MoviesPage from '../mainpage/moviechild/moviespage';
 import UsersPage from './userschild/usersmangpage';
 import SubsPage from './subschild/subsmainpage';
 import '../css/menu.css';
-const urlusers = "http://localhost:3001/api/Users"
+const urlusers = "https://coromovies.herokuapp.com/api/Users"
 
 function MainRouter({ match ,history}) {
     const [name] = useState(match.params.name)

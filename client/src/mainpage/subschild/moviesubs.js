@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getAll,addObj,getById,updateObj} from '../../utils';
 import Newsubs from './addsusb';
-const urlsubs = "http://localhost:3001/api/Subs"
-const urlmembers = "http://localhost:3001/api/Members"
-const urlmovie = "http://localhost:3001/api/Movies"
+const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
+const urlmembers = "https://coromovies.herokuapp.com/api/Members"
+const urlmovie = "https://coromovies.herokuapp.com/api/Movies"
 
 function MovieSubs(props) {
     const [All_Subs, setsubs] = useState(false)

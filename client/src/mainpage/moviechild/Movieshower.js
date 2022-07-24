@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Subs from './subs';
-const urlsubs = "http://localhost:3001/api/Subs"
-const urlmembers = "http://localhost:3001/api/Members"
+const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
+const urlmembers = "https://coromovies.herokuapp.com/api/Members"
 
 function ShowMovie(props) {
     const [Checksubs, setChecksubs] = useState(false)

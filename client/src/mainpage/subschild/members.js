@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MovieSubs from './moviesubs';
-const urlsubs = "http://localhost:3001/api/Subs"
+const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
 
 function Member(props) {
     

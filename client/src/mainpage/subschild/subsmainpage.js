@@ -9,8 +9,8 @@ import SwiperCore,{Navigation,Pagination} from 'swiper';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 
-const urlmembers = "http://localhost:3001/api/Members"
-const urlsubs = "http://localhost:3001/api/Subs"
+const urlmembers = "https://coromovies.herokuapp.com/api/Members"
+const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
 
 function SubsPage(props) {
     const [Members, setMembers] = useState({})

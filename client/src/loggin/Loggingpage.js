@@ -6,9 +6,9 @@ import MovieJson from '../api/movies';
 import MemberJson from '../api/members';
 import WorkersJson from '../api/workers';
 
-const urlmovie = "http://localhost:3001/api/Movies"
-const urlmembers = "http://localhost:3001/api/Members"
-const url = "http://localhost:3001/api/Users"
+const urlmovie = "https://coromovies.herokuapp.com/api/Movies"
+const urlmembers = "https://coromovies.herokuapp.com/api/Members"
+const url = "https://coromovies.herokuapp.com/api/Users"
 
 function Logging({ history}) {
     const [User, setUser] = useState({ Username: "", Password: "" })

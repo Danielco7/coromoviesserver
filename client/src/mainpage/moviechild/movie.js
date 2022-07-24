@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Subs from './subs';
 import {CSSTransition} from 'react-transition-group';
 import ShowMovie from './Movieshower';
-const urlsubs = "http://localhost:3001/api/Subs"
+const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
 
 function Movie(props) {
     const [CheckUpadteButton, setCheckUpadteButton] = useState('')

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAll,updateObj} from '../utils';
 
-const url = "http://localhost:3001/api/Users"
+const url = "https://coromovies.herokuapp.com/api/Users"
 
 function Create({history}) {
     const [user, setsignupUser] = useState({ username: "", password: "" })
