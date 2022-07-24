@@ -5,7 +5,6 @@ const memberrouts = require('./routes/members')
 const movierouts = require('./routes/movie')
 const subsrouts = require('./routes/subs')
 const path = require('path');
-const mongoose = require('mongoose');
 
 // const connectDBu = require('./config/database_users');
 const connectDBs = require('./config/dataabase');
@@ -23,10 +22,7 @@ app.use(express.json());
 connectDBs()
 // connectDBu();
 
-mongoose.connect(process.env.MONGODV_URI,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+
 
 app.use('/api/Users/',usersrouts)
 app.use('/api/Members',memberrouts)
