@@ -87,15 +87,13 @@ function UsersPage(props) {
 
     }
 
-    return <div >
-
-
-
-<div className="container" >
+    return <div className='moviepage' >
+      <div className="container" >
         <div id='users_imgbackground'/>
         <h1 id='titlee'>Users</h1>
-        <div>{checknewuser?<button onClick={allusers} className="btnn">all users</button>:null}
-        {checkedit?<button onClick={allusers} className="btnn">all users</button>:null}
+        <div>
+          {/* {checknewuser?<button onClick={allusers} className="btnn">all users</button>:null}
+        {checkedit?<button onClick={allusers} className="btnn">all users</button>:null} */}
         {checkusers? <button onClick={adduser} className="btnn">add user</button>:null}
         </div>
         
@@ -148,8 +146,8 @@ function UsersPage(props) {
     })}
 
  </div>  :null}
-         {checkedit?<EditUser user={usertoedit} update={Update} cancel={allusers}/>:null}
-         {checknewuser?<AddUser  add={Add} cancel={allusers}/>:null}
+         {checkedit?<div className='add_movie_continer'><EditUser user={usertoedit} update={Update} cancel={allusers}/></div>:null}
+         {checknewuser?<div className='add_movie_continer'><AddUser  add={Add} cancel={allusers}/></div>:null}
     
 </div>;
 }

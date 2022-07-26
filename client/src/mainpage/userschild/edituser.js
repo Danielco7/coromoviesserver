@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import Logo from '../../imgs/add_worker.svg';
 function EditUser(props) {
     const [user, setUser] = useState(props.user)
     const [button2, setbutton2] = useState(false)
@@ -201,28 +202,39 @@ function EditUser(props) {
       }
     
     
-    return <div style={{minHeight:"100vh"}} >{check?<div  className='AddMovie' style={{height:"740px"}}>
-        <h1> Edit User: {props.user.fname} {props.user.Lname} </h1>
-         First Name:<input className='AddMovieInput' defaultValue={props.user.fname} name={'fname'} onChange={e => {setUser({ ...user, fname: e.target.value })
-        setfname(e.target.value)}} /> <br></br>
-      <span className="text-danger">{fnameErr}</span> <br></br>
-         
-    Last Name: <input className='AddMovieInput' defaultValue={props.user.Lname} name={'Lname'} onChange={e => {setUser({ ...user, Lname: e.target.value })
-    setLname(e.target.value)}}/><br></br>
-      <span className="text-danger">{LnameErr}</span><br></br>
-
-    User Name: <input className='AddMovieInput' defaultValue={props.user.username} name={'username'} onChange={e => {setUser({ ...user, username: e.target.value })
-    setusername(e.target.value)}}/><br></br>
-      <span className="text-danger">{usernameErr}</span><br></br>
+    return <div style={{minHeight:"100vh"}} >{check?<div id='AddUser' className='AddMovie' style={{height:"740px"}}>
+    <img  className='svg_add_movie' src={Logo}/>
+    <h1> Edit User: {props.user.fname} {props.user.Lname} </h1>
+    <div className='AddMovieInput_cont'>
+    <div className='add_info_headers'>FirstName: </div><input className='AddMovieInput' defaultValue={props.user.fname} name={'fname'} onChange={e => {setUser({ ...user, fname: e.target.value })
+    setfname(e.target.value)}} /> <br></br></div>
+    <span className="text-danger">{fnameErr}</span> <br></br>
+    <div className='AddMovieInput_cont'>
+    <div className='add_info_headers'>LastName: </div><input className='AddMovieInput' defaultValue={props.user.Lname} name={'Lname'} onChange={e => {setUser({ ...user, Lname: e.target.value })
+    setLname(e.target.value)}}/><br></br></div>
+    <span className="text-danger">{LnameErr}</span><br></br>
+    <div className='AddMovieInput_cont'>
+    <div className='add_info_headers'>UserName: </div><input className='AddMovieInput' defaultValue={props.user.username} name={'username'} onChange={e => {setUser({ ...user, username: e.target.value })
+    setusername(e.target.value)}}/><br></br></div>
+    <span className="text-danger">{usernameErr}</span><br></br>
     Permissions: <br></br>
-    <input type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} />View Subscriptions <br></br>
-    <input type={"checkbox"} name={"Create Subscriptions"} defaultChecked={button2} onChange={Check_View_Subs} />Create Subscriptions <br></br>
-    <input type={"checkbox"} name={"Delete Subscriptions"} defaultChecked={button3} onChange={Check_View_Subs} />Delete Subscriptions <br></br>
-    <input type={"checkbox"} name={"Update Subscription"} defaultChecked={button4} onChange={Check_View_Subs} />Update Subscription <br></br>
-    <input type={"checkbox"} name={"View Movies"}  onChange={movieschecks} checked={moviescheck} disabled={dissablemovie}/>View Movies <br></br>
-    <input type={"checkbox"} name={"Create Movies"} defaultChecked={button6} onChange={Check_View_Movie} />Create Movies <br></br>
-    <input type={"checkbox"} name={"Delete Movies"} defaultChecked={button7} onChange={Check_View_Movie} />Delete Movies <br></br>
-    <input type={"checkbox"} name={"Update Movie"} defaultChecked={button8} onChange={Check_View_Movie} />Update Movie <br></br><br></br>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>View Subscriptions </div><input className='permission_inputs' type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Create Subscriptions </div><input className='permission_inputs' type={"checkbox"} name={"Create Subscriptions"} defaultChecked={button2} onChange={Check_View_Subs} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Delete Subscriptions </div><input className='permission_inputs' type={"checkbox"} name={"Delete Subscriptions"} defaultChecked={button3} onChange={Check_View_Subs} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Update Subscription </div><input className='permission_inputs' type={"checkbox"} name={"Update Subscription"} defaultChecked={button4} onChange={Check_View_Subs} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>View Movies </div><input className='permission_inputs' type={"checkbox"} name={"View Movies"}  onChange={movieschecks} checked={moviescheck} disabled={dissablemovie}/><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Create Movies </div><input className='permission_inputs' type={"checkbox"} name={"Create Movies"} defaultChecked={button6} onChange={Check_View_Movie} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Delete Movies </div><input className='permission_inputs' type={"checkbox"} name={"Delete Movies"} defaultChecked={button7} onChange={Check_View_Movie} /><br></br></div>
+    <div className='AddMovieInput_cont'>
+    <div id='Permissions' className='add_info_headers'>Update Movie </div><input className='permission_inputs' type={"checkbox"} name={"Update Movie"} defaultChecked={button8} onChange={Check_View_Movie} /><br></br></div>
+    <br></br>
 
   <div className='AddMoviecontainer'>
     <button className='AddMovieButtons' onClick={Edit}>Update</button>

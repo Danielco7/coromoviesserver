@@ -15,7 +15,7 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.438) 0px 10px 60px 8px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
     background-image: url(../imgs/movies_img_background.png);
     background-repeat:no-repeat;
     background-size:contain;
@@ -33,7 +33,7 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.438) 0px 10px 60px 8px;
+    box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
     background-image: url(../imgs/workers.jpg);
     background-repeat:no-repeat;
     background-size:contain;
@@ -89,7 +89,7 @@
     margin-right: 170px;
     margin-left: auto;
   }
-  .AddMovieButtons , .EditMovieButtons {
+  /* .AddMovieButtons , .EditMovieButtons {
     background-color: #555;
     color: white;
     font-size: 16px;
@@ -97,12 +97,18 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
-  }
+  } */
   .AddMovieInput ,.EditMovieInput{
     background-color: #555;
     color: #fdfdff;
+    border: #3f3d56 1px solid;
     text-transform: capitalize;
-  
+    border-radius: 10px;
+    font-size: 20px;
+    height: 29px;
+    margin-top: 5px;
+    width: 200px;
+
   }
   .moviebuttons{
     background-color: #555;
@@ -114,12 +120,15 @@
     border-radius: 5px;
   }
   .movie_edit_info{
-    margin-right: 20%;
+    margin-right: 15%;
     margin-left: auto;
+    margin-top: 40px;
+
   }
   .edit_img_cont{
     height:220px;
-    margin-left: 20%;
+    margin-left: 10%;
+    margin-top: 40px;
   }
   .edit_img{
     height: 300px;
@@ -128,11 +137,107 @@
     background-color: #292933;
     display: flex;
   }
-  
+  .svg_add_movie{
+    width: 300px;
+    position: absolute;
+    top: -138px;
+    right: 38px;
+  }
+  #member_svg{
+    top: -197px;
+    left:  28px;
+  }
+
+  .AddMovie ,.EditMovie{
+    background-color: #0f0f11;
+    width: 50%;
+    min-height: 340px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: #3f3d56 1px solid;
+    font-size: 1.5em;
+    margin: auto;
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    animation-name: example;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  #AddMember{
+    border: #ffffff 2px solid;
+    animation-name: example2;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+  }
+  #AddUser{
+  margin-top: 0px;
+  animation-name: example3;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
 }
-/* .moviepage{
-  min-height: 900px;
-} */
+  @keyframes example {
+    from {visibility: hidden;
+          opacity: 0;
+          margin-top: 100px;}
+    to {visibility: visible;
+        opacity: 1;
+        margin-top: 200px;}
+  }
+  @keyframes example2 {
+    from {visibility: hidden;
+          opacity: 0;
+          margin-top: 100px;}
+    to {visibility: visible;
+        opacity: 1;
+        margin-top: 260px;}
+  }
+@keyframes example3 {
+  from {visibility: hidden;
+        opacity: 0;
+        margin-top: 0px;}
+  to {visibility: visible;
+      opacity: 1;
+      margin-top: 150px;}
+}
+  .add_movie_continer{
+    position: absolute;
+    top: 0;
+    left: -20px;
+    background-color:#221e1eef;
+    width: 103%;
+    height: 100%;
+  }
+  .AddMovieInput_cont{
+    margin: auto;
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+  }
+  
+  
+  .add_info_headers{
+    text-align: left;
+    width: 120px;
+  }
+  #Permissions{
+    justify-content: space-around;
+    width: 270px;
+  }
+  .permission_inputs{
+    width: 20px;
+    margin-top: 5px;
+  }
+  .moviepage{
+    min-height: 900px;
+  }
+
+}
+
 
   .container h1{
     position: absolute;
@@ -244,23 +349,28 @@
 .undo:hover>svg>path {
   fill: rgb(0, 255, 255);
 }
-.AddMovie ,.EditMovie{
-  height: 430px;
-  color: rgb(255, 255, 255);
-  font-size: 1.5em;
-  margin: auto;
-  padding-top: 40px;
-}
+
 
 .AddMovieInput:focus , .EditMovieInput:focus{
   background-color: rgb(59, 59, 59);
+
 }
 .AddMoviecontainer, .EditMoviecontainer{
   display: flex;
   justify-content: space-evenly;
 }
 .AddMovieButtons:hover , .EditMovieButtons:hover{
-  background-color: black;
+  background-color: rgb(59, 59, 59);
+}
+
+.AddMovieButtons , .EditMovieButtons {
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 8px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 .MemebrsContainer{
 
@@ -385,7 +495,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.438) 0px 10px 60px 8px;
+  box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
   background-image: url(../imgs/peakpx.jpg);
   position: relative;
   background-position:center;
@@ -399,7 +509,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.438) 0px 10px 60px 8px;
+  box-shadow: rgba(0, 0, 0, 0.438) 0px 1px 6px 1px;
   background-image: url(../imgs/workers2.jpg);
   position: relative;
   background-position:center;
@@ -464,18 +574,22 @@ overflow:hidden;
   background-color: #555;
   color: white;
   font-size: 16px;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  border: #3f3d56 1px solid;
 }
 .AddMovieInput ,.EditMovieInput{
   background-color: #555;
   color: #fdfdff;
+  border: #3f3d56 1px solid;
   text-transform: capitalize;
-  width: 150px;
-  height: 30px;
-  font-size: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 27px;
+  margin-top: 7px;
+  width: 186px;
 }
 .edit_img_cont{
   height:170px
@@ -487,4 +601,128 @@ overflow:hidden;
   background-color: #292933;
   height: 550px;
 }
+
+
+
+.svg_add_movie{
+  width: 175px;
+  position: absolute;
+  top: -81px;
+  right:  18px;
+}
+#member_svg{
+  width: 205px;
+  top: -135px;
+  left: 10px;
+}
+
+.add_movie_continer{
+  position: absolute;
+  top: 0;
+  left: -20px;
+  background-color:#221e1eef;
+  width: 107%;
+  height: 104%;
+  /* filter: blur(20px); */
+}
+
+.AddMovie ,.EditMovie{
+  background-color: #dc8b11;
+  width: 92%;
+  min-height: 340px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  border: #3f3d56 1px solid;
+  font-size: 1.5em;
+  margin: auto;
+  margin-left: 5%;
+  margin-top: 50px;
+  padding-top: 45px;
+  padding-bottom: 40px;
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  animation-name: example;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+#AddMember{
+  margin-top: 150px;
+  border: #ffffff 1.5px solid;
+  animation-name: example2;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+.AddMovieInput_cont{
+  margin: auto;
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
+#Permissions{
+  justify-content: space-around;
+  width: 270px;
+
+}
+.permission_inputs{
+  width: 20px;
+  margin-top: 5px;
+}
+.add_info_headers{
+  text-align: left;
+  width: 120px;
+}
+
+@keyframes example {
+  from {visibility: hidden;
+        opacity: 0;
+        margin-top: 50px;}
+  to {visibility: visible;
+      opacity: 1;
+      margin-top: 110px;}
+}
+@keyframes example2 {
+  from {visibility: hidden;
+        opacity: 0;
+        margin-top: 150px;}
+  to {visibility: visible;
+      opacity: 1;
+      margin-top: 210px;}
+}
+
+}
+
+
+
+
+
+
+
+
+.btnn_allmovies{
+  position: absolute;
+  top: -50px;
+  left: 450px;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 2;
+}
+
+
+.AddMovieButtons , .EditMovieButtons {
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 4px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #3f3d56 2px solid;
 }

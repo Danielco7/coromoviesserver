@@ -96,7 +96,6 @@ function MoviesPage(props) {
         const { data:data1 } = await addObj(urlmovie,e)
         const { data } = await getAll(urlmovie) 
         setMovies(data)
-      
 
  }
  const Delete=async(e,value2)=> {
@@ -140,15 +139,17 @@ const membertoshow= async(e)=> props.showmember(e)
 const imgclick=async(e)=> {
   await setMovieToShow('');
     await setMovieToShow(e);
+   console.log(window.innerWidth); 
     window.scrollTo(0, 1000);
   }
- 
+
     return <div className='moviepage'>
       <div className="container">
         <div id='imgbackground'/>
         <h1 id='titlee'>Movies</h1>
-        <div>{DisplayAddMoviePage?<button onClick={allmovies} className="btnn">all movies</button>:null}
-        {DisplayEditMoviePage?<button onClick={allmovies} className="btnn">all movies</button>:null}
+        <div>
+          {/* {DisplayAddMoviePage?<button onClick={allmovies} className="btnn_allmovies">all movies</button>:null}
+        {DisplayEditMoviePage?<button onClick={allmovies} className="btnn_allmovies">all movies</button>:null} */}
         {DisplayAllMovies?props.user.admin? <button onClick={addmovie} className="btnn">add movie</button>:Check_Create_Movie_Permission==="Create Movies"? <button onClick={addmovie} className="btnn">add movie</button>:null:null}
         </div>
         {DisplayAllMovies?<div className="flexbox">
@@ -210,8 +211,8 @@ const imgclick=async(e)=> {
      }
              </div>:null}
 
-             {DisplayAddMoviePage?<AddMovie cancel={allmovies} add={addnewmovie} />:null}
-             {DisplayEditMoviePage?<EditMovie cancel={allmovies} update={updatemovie} movie={Movietoedit} />:null}
+             {DisplayAddMoviePage?<div className='add_movie_continer'><AddMovie cancel={allmovies} add={addnewmovie} /></div>:null}
+             {DisplayEditMoviePage?<div className='add_movie_continer'><EditMovie cancel={allmovies} update={updatemovie} movie={Movietoedit}/></div>:null}
              
         
     </div>;

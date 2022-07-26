@@ -17,7 +17,7 @@ function User(props) {
     }
 
     return <div className='Memebrs'>
-        <h4>Name: {`${props.user.fname} ${props.user.Lname}`}</h4>
+        <h4>{`${props.user.fname} ${props.user.Lname}`}</h4>
         <h4>User Name: {props.user.username}</h4>
         <div className='moviecontainer'>
           <button className='membersbuttons' onClick={Edit}>edit</button>

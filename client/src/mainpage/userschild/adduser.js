@@ -1,6 +1,7 @@
 // import { setegid } from 'process';
 import React, { useEffect, useState } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import Logo from '../../imgs/add_worker.svg';
 function AddUser(props) {
     const [user, setUser] = useState({})
     const [subscheck, setsubscheck] = useState(false)
@@ -139,30 +140,40 @@ function AddUser(props) {
      
     const Cancel = async() => props.cancel()
 
-    return <div className='AddMovie' style={{height:"740px"}}>
-
+    return <div id='AddUser' className='AddMovie' style={{height:"740px"}}>
+     <img  className='svg_add_movie' src={Logo}/>
       <h1> New User: </h1>
-      First Name:<input className='AddMovieInput'  onChange={e => {setUser({ ...user, fname: e.target.value })
-      setfname(e.target.value)}} /> <br></br>
+      <div className='AddMovieInput_cont'>
+      <div className='add_info_headers'>FirstName: </div><input className='AddMovieInput'  onChange={e => {setUser({ ...user, fname: e.target.value })
+      setfname(e.target.value)}} /> <br></br></div>
       <span className="text-danger">{fnameErr}</span> <br></br>
-
-      Last Name: <input className='AddMovieInput'  onChange={e => {setUser({ ...user, Lname: e.target.value })
-      setLname(e.target.value)}}/><br></br>
+      <div className='AddMovieInput_cont'>
+      <div className='add_info_headers'>LastName: </div><input className='AddMovieInput'  onChange={e => {setUser({ ...user, Lname: e.target.value })
+      setLname(e.target.value)}}/><br></br></div>
       <span className="text-danger">{LnameErr}</span><br></br>
-
-      UserName: <input className='AddMovieInput'  onChange={e => {setUser({ ...user, username: e.target.value })
-      setusername(e.target.value)}}/><br></br>
+      <div className='AddMovieInput_cont'>
+      <div className='add_info_headers'>UserName: </div><input className='AddMovieInput'  onChange={e => {setUser({ ...user, username: e.target.value })
+      setusername(e.target.value)}}/><br></br></div>
       <span className="text-danger">{usernameErr}</span><br></br>
 
       Permissions: <br></br>
-      <input  type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} />View Subscriptions <br></br>
-      <input  type={"checkbox"} name={"Create Subscriptions"} onChange={Check_View_Subs} />Create Subscriptions <br></br>
-      <input  type={"checkbox"} name={"Delete Subscriptions"} onChange={Check_View_Subs} />Delete Subscriptions <br></br>
-      <input  type={"checkbox"} name={"Update Subscription"} onChange={Check_View_Subs} />Update Subscription <br></br>
-      <input  type={"checkbox"} name={"View Movies"}  onChange={movieschecks} checked={moviescheck} disabled={dissablemovie}/>View Movies <br></br>
-      <input  type={"checkbox"} name={"Create Movies"} onChange={Check_View_Movie} />Create Movies <br></br>
-      <input  type={"checkbox"} name={"Delete Movies"} onChange={Check_View_Movie} />Delete Movies <br></br>
-      <input  type={"checkbox"} name={"Update Movie"} onChange={Check_View_Movie} />Update Movie <br></br><br></br>
+
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>View Subscriptions </div><input className='permission_inputs'  type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Create Subscriptions </div><input className='permission_inputs'  type={"checkbox"} name={"Create Subscriptions"} onChange={Check_View_Subs} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Delete Subscriptions </div><input className='permission_inputs'  type={"checkbox"} name={"Delete Subscriptions"} onChange={Check_View_Subs} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Update Subscription </div><input className='permission_inputs'  type={"checkbox"} name={"Update Subscription"} onChange={Check_View_Subs} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>View Movies </div><input className='permission_inputs'  type={"checkbox"} name={"View Movies"}  onChange={movieschecks} checked={moviescheck} disabled={dissablemovie}/><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Create Movies </div><input className='permission_inputs'  type={"checkbox"} name={"Create Movies"} onChange={Check_View_Movie} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Delete Movies </div><input className='permission_inputs'  type={"checkbox"} name={"Delete Movies"} onChange={Check_View_Movie} /><br></br></div>
+      <div className='AddMovieInput_cont'>
+      <div id='Permissions' className='add_info_headers'>Update Movie </div><input className='permission_inputs'  type={"checkbox"} name={"Update Movie"} onChange={Check_View_Movie} /><br></br></div><br></br>
       <div className='AddMoviecontainer'>
       <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
       <button className='AddMovieButtons' onClick={Cancel}>cancel</button>

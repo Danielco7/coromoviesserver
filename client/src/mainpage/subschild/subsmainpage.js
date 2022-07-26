@@ -117,13 +117,14 @@ function SubsPage(props) {
         }else setMembers(BackUpMembersArry)
     }
 
-    return<div className='divvv'>
+    return<div className='moviepage' >
 
 <div className="container" >
         <img src={members} alt="logo" id='imgbackground'/>
         <h1 id='titlee'>Members</h1>
-        <div>{checkaddmember?<button onClick={allmembers} className="btnn">all members</button>:null}
-        {checkeditmember?<button onClick={allmembers} className="btnn">all members</button>:null}
+        <div>
+          {/* {checkaddmember?<button onClick={allmembers} className="btnn">all members</button>:null}
+        {checkeditmember?<button onClick={allmembers} className="btnn">all members</button>:null} */}
         {checkallmembers?props.user.admin? <button onClick={addmember} className="btnn">add member</button>:Check_Create_Subscription_Permission==="Create Subscriptions"? <button onClick={addmember} className="btnn">add member</button>:null:null}
         </div>
         {checkallmembers?<div className="flexbox">
@@ -181,8 +182,8 @@ function SubsPage(props) {
       <Member counter={index} key={index} member={member} user={props.user}  Delete={Delete} Edit={Editthismember} displaymovie={showmovie}/>
      </div>
                 })}</div>:null}
-             {checkaddmember?<AddMember cancel={allmembers} add={addnewmember} />:null}
-             {checkeditmember?<EditMember cancel={allmembers} update={updatemember} member={membertoedit} />:null}
+             {checkaddmember?<div className='add_movie_continer'><AddMember cancel={allmembers} add={addnewmember} /></div>:null}
+             {checkeditmember?<div className='add_movie_continer'><EditMember cancel={allmembers} update={updatemember} member={membertoedit} /></div>:null}
     </div>
 }
 
