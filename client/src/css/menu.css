@@ -25,12 +25,20 @@
     align-items: center;
     justify-content: space-between; 
   }
+  .logo_cont{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 300px;
+  }
   .logo{
     width: 260px;
     font-family: bungee_shade_regular;
     font-size: 32px;
+    margin-right: 0;
     cursor: pointer;
     left:auto;
+    text-align: left;
   }
   a {
     font-size: large;
@@ -70,6 +78,10 @@
     width: 100%; 
     left: 0;
   }
+  .logo_cont{
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 
@@ -79,10 +91,17 @@
         margin: auto;
         padding: 15px 0;
       }
+      .logo_cont{
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 16px;
+      }
     .logo{
         font-family: bungee_shade_regular;
-        font-size: 32px;
+        font-size: 24px;
         cursor: pointer;
+      
+        height: 50px;
       }
       #nav{
           display: flex;
@@ -95,6 +114,7 @@
         text-decoration: none;
         letter-spacing: 0.40em;
         padding: 8px 2px;
+        padding-top: 0;
         position: relative;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 

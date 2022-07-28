@@ -19,9 +19,10 @@ function User(props) {
     return <div className='Memebrs'>
         <h4>{`${props.user.fname} ${props.user.Lname}`}</h4>
         <h4>User Name: {props.user.username}</h4>
+        
         <div className='moviecontainer'>
-          <button className='membersbuttons' onClick={Edit}>edit</button>
-          <button className='membersbuttons' onClick={() => {
+          <button className='membersbuttons membersbuttons1' onClick={Edit}>edit</button>
+          <button className='membersbuttons membersbuttons2' onClick={() => {
             if (window.confirm("Delete this user?")) {Delete()}
           }}>delete</button>
         </div>

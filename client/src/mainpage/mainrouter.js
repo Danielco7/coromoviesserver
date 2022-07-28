@@ -4,6 +4,7 @@ import MoviesPage from '../mainpage/moviechild/moviespage';
 import UsersPage from './userschild/usersmangpage';
 import SubsPage from './subschild/subsmainpage';
 import '../css/menu.css';
+import Info_messge from './info_messge';
 const urlusers = "https://coromovies.herokuapp.com/api/Users"
 
 function MainRouter({ match ,history}) {
@@ -16,6 +17,10 @@ function MainRouter({ match ,history}) {
     const [Check_View_Subs_Permission, setCheck_View_Subs_Permission] = useState('')
     const [User_To_Show, setUser_To_Show] = useState({})
     const [Movie_To_Show, setMovie_To_Show] = useState({})
+    const [info, setInfo] = useState(false)
+    const [messge1, setMessge1] = useState('This is the movies page where you can view movies and their subscribers, add a new movie, and  edit&delte and exist movies with your given permission. ')
+    const [messge2, setMessge2] = useState('To add, edit and delete a movie you simply click on the buttons that tell that, and if you want to view subscribers just click which movie you like. ')
+
 
     useEffect(() => {
         async function getmovies() {
@@ -40,24 +45,27 @@ function MainRouter({ match ,history}) {
          getmovies()
      }, [])
     const Movies= async()=> {
-    await setMovies(false)
-    await setMovie_To_Show({})
-    await setMovies(true)
-    await setSubs(false)
-    await setUsers(false)
-        
+    setMovies(false)
+    setMovie_To_Show({})
+    setMovies(true)
+    setSubs(false)
+    setUsers(false)
+    setMessge1("This is the movie's page where you can view movies and their subscribers, add a new movie, and  edit and delete and existing movies with your given permission.")
+    setMessge2('To add, edit and delete a movie you simply click on the buttons that tell that, and if you want to view subscribers just click which movie you like.  ')
     }
     const Subs= async()=> {
     setMovies(false)
     setSubs(true)
     setUsers(false)
-        
+    setMessge1("This is the member's page where you mostly add new members and subscribe them to a movie they want in addition you can edit and delete existing member with your given permission.")
+    setMessge2('To add, edit and delete a member you simply click on the buttons that tell that, and if you want to subscribe a member to a movie there is a scion for it inside each member card.')
     }
     const Users= async()=> {
     setMovies(false)
     setSubs(false)
     setUsers(true)
-        
+    setMessge1("This is the employee's page where you can control and manage your employees, this page is mostly for the manager to add new workers to the company, edit and delete existing workers and their permissions.")
+    setMessge2('If you would like to add, edit and delete an employee you simply click on the buttons that tell that the permissions you give to each employee will determine the access they have to the compeny site.')
     } 
      const logout= async()=> history.push(`/`);
 
@@ -76,12 +84,17 @@ function MainRouter({ match ,history}) {
         window.location.reload(false);
       }
 
+      function mouseenter() {
+          setInfo(true)
+      }
+      function mouseleave() {
+        setInfo(false)
+      }
+
     return <div className='MainPage'>
-
-
-        
+        {info ?<Info_messge messge1={messge1} messge2={messge2} />:null}
         <div className='menu' >
-        <div className='logo' onClick={refreshPage}>coromovies</div>
+        <div className='logo_cont'> <div className='logo' onClick={refreshPage}>coromovies</div><sup className='info1' onMouseEnter={mouseenter} onMouseLeave={mouseleave} >&#9432;  </sup></div>
         <div id='nav'>
         <a>{user.admin? <button onClick={Movies} className="ul">Movies</button>:Check_View_Movie_Permission==="View Movies"? <button onClick={Movies} className="ul">Movies</button>:null}</a>
          <a>{user.admin? <button onClick={Subs} className="ul">Members</button>:Check_View_Subs_Permission==="View Subscriptions"? <button onClick={Subs} className="ul">Members</button>:null}</a>

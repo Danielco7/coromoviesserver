@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect,Link,} from "react-router-dom";
 import { getAll,updateObj,addObj,deleteObj} from '../utils';
 import '../css/loginpage.css';
 import MovieJson from '../api/movies';
 import MemberJson from '../api/members';
 import WorkersJson from '../api/workers';
+import Logo from '../imgs/love_info.svg'
 
 const urlmovie = "https://coromovies.herokuapp.com/api/Movies"
 const urlmembers = "https://coromovies.herokuapp.com/api/Members"
@@ -176,11 +177,13 @@ function Logging({ history}) {
         history.push(`/main/${'onlineguest'}`)
     }
     
-    return <div className='logginbody'>
+    return <div id='logginbody' className='logginbody'>
         
-        
-        <div className='parent'>
-            
+        <div id='add_movie_continer'></div>
+        <div id='parent' className='parent'>
+        <sup className='info'>&#9432; </sup> 
+        <span className="tooltipcont"><div className="tooltiptext"><img id='info_svg' className='svg_add_movie' src={Logo}/><h1>Hello and wellcome </h1> <h5>this site is a multi function workers inviorment that orgnize movies, members and employes in one place i will be your guid at any time you can simply hover at the info icon as shown.<sup >&#9432;</sup><br></br>
+        here employes can log in to there account if you dont have one you need to ask for a manger of simply log in as a guest.</h5></div></span>
         <div className='sign-in-img'>
         </div>
         <div className='sign-up-img'>

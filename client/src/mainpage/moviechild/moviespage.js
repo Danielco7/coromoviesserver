@@ -4,11 +4,12 @@ import { getAll,addObj,deleteObj,updateObj} from '../../utils';
 import '../../css/moviepage.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore,{Navigation,Pagination} from 'swiper';
-
 import Movie from './movie';
 import AddMovie from './addmovie';
 import EditMovie from './editmovie';
 import ShowMovie from './Movieshower';
+import Logo from '../../imgs/love_info.svg'
+import Info_messge from '../info_messge';
 
 
 // import Movieurl from '../../api/movies'

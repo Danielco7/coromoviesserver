@@ -11,12 +11,14 @@ function MovieSubs(props) {
     const [subedmovies, setsubedmovies] = useState([])
     const [allmovies, setallmovies] = useState([])
     const [newsub, setnewsub] = useState(false)
+    const [needtodel, setneedtodel] = useState([])
 
     useEffect(() => {
         const getsubs = async()=> {
             const { data } = await getAll(urlsubs)
             const filtered =data.find(meb => meb.memberId === props.member._id)
             const allsubmovies=[]
+            const allneedtodelsubs=[]
 
             if (filtered!==undefined) {
                 setsuber(filtered)
@@ -29,11 +31,18 @@ function MovieSubs(props) {
                     name:data.name,
                     date:elementt.date
                     }
-                   if (obj.name!==undefined) allsubmovies.push(obj)
+                    if (new Date() > new Date(elementt.date)) {
+                        console.log('hello');
+                    }
+                    console.log(elementt.date);
+                   if (obj.name!==undefined&&new Date() <= new Date(obj.date)) allsubmovies.push(obj)
+                   else{allneedtodelsubs.push(obj)}
+                   console.log(allneedtodelsubs);
                 }
                 }
             }
              setsubedmovies(allsubmovies)
+             setneedtodel(allneedtodelsubs)
              setsubs(true)
      }
          getsubs()

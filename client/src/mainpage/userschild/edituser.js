@@ -196,13 +196,24 @@ function EditUser(props) {
             setusernameErr(usernameError)
          return false
         }
+        var window1=document.getElementById('AddUser')
+        var window2=document.getElementById('AddUser2')
+        window1.style.animation = "hide_left1 0.8s"
+        window1.style.position = "absolute"
+        window2.style.animation=("active_left1 0.9s");
+        window2.style.animationFillMode = "forwards";
+        window2.style.animationDelay = "0.7s";
+      }
+      const Send= async()=>{
+        console.log('asdas');
         user.premissions=Permissions
         props.update(user)
         props.cancel()
-      }
+    }
     
     
-    return <div style={{minHeight:"100vh"}} >{check?<div id='AddUser' className='AddMovie' style={{height:"740px"}}>
+    return <div  className='add_new_user' >
+    {check?<div id='AddUser' className='AddMovie' style={{minheight:"170px"}}>
     <img  className='svg_add_movie' src={Logo}/>
     <h1> Edit User: {props.user.fname} {props.user.Lname} </h1>
     <div className='AddMovieInput_cont'>
@@ -217,6 +228,14 @@ function EditUser(props) {
     <div className='add_info_headers'>UserName: </div><input className='AddMovieInput' defaultValue={props.user.username} name={'username'} onChange={e => {setUser({ ...user, username: e.target.value })
     setusername(e.target.value)}}/><br></br></div>
     <span className="text-danger">{usernameErr}</span><br></br>
+    <div className='AddMoviecontainer'>
+    <button className='AddMovieButtons' onClick={Edit}>continue</button>
+    <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
+  </div>
+    </div>:null}
+
+    {check?<div id='AddUser2' style={{minheight:"220px"}}>
+    <img  className='svg_add_movie' src={Logo}/>
     Permissions: <br></br>
     <div className='AddMovieInput_cont'>
     <div id='Permissions' className='add_info_headers'>View Subscriptions </div><input className='permission_inputs' type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} /><br></br></div>
@@ -235,13 +254,11 @@ function EditUser(props) {
     <div className='AddMovieInput_cont'>
     <div id='Permissions' className='add_info_headers'>Update Movie </div><input className='permission_inputs' type={"checkbox"} name={"Update Movie"} defaultChecked={button8} onChange={Check_View_Movie} /><br></br></div>
     <br></br>
-
   <div className='AddMoviecontainer'>
-    <button className='AddMovieButtons' onClick={Edit}>Update</button>
+    <button className='AddMovieButtons' onClick={Send}>Update</button>
     <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
   </div>
-  </div>
-:null}
+  </div>:null}
       </div>
   
 }

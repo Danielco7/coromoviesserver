@@ -67,11 +67,13 @@ function AddUser(props) {
             setusernameErr(usernameError)
          return false
         }
-        user.premissions=Permissions
-                user.admin=false
-                user.created=date
-                user.password=''
-                props.add(user)
+        var window1=document.getElementById('AddUser')
+        var window2=document.getElementById('AddUser2')
+        window1.style.animation = "hide_left1 0.8s"
+        window1.style.position = "absolute"
+        window2.style.animation=("active_left1 0.9s");
+        window2.style.animationFillMode = "forwards";
+        window2.style.animationDelay = "0.7s";
       }
         
         const Check_View_Subs = async(e) => {
@@ -136,11 +138,20 @@ function AddUser(props) {
                     setmoviescheck(e.target.checked)
                     handleChange(e)
     }
+    const Send= async()=>{
+        console.log('asdas');
+        user.premissions=Permissions
+        user.admin=false
+        user.created=date
+        user.password=''
+        props.add(user)
+    }
 
      
     const Cancel = async() => props.cancel()
 
-    return <div id='AddUser' className='AddMovie' style={{height:"740px"}}>
+    return <div className='add_new_user'>
+     <div id='AddUser' className='AddMovie' style={{minheight:"140px"}}>
      <img  className='svg_add_movie' src={Logo}/>
       <h1> New User: </h1>
       <div className='AddMovieInput_cont'>
@@ -155,9 +166,14 @@ function AddUser(props) {
       <div className='add_info_headers'>UserName: </div><input className='AddMovieInput'  onChange={e => {setUser({ ...user, username: e.target.value })
       setusername(e.target.value)}}/><br></br></div>
       <span className="text-danger">{usernameErr}</span><br></br>
-
+      <div className='AddMoviecontainer'>
+      <button className='AddMovieButtons' onClick={Check_And_Send}>continue</button>
+      <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
+      </div>
+</div>
+<div className='AddMovie1' id='AddUser2'>
+<img  className='svg_add_movie' src={Logo}/>
       Permissions: <br></br>
-
       <div className='AddMovieInput_cont'>
       <div id='Permissions' className='add_info_headers'>View Subscriptions </div><input className='permission_inputs'  type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} /><br></br></div>
       <div className='AddMovieInput_cont'>
@@ -175,10 +191,10 @@ function AddUser(props) {
       <div className='AddMovieInput_cont'>
       <div id='Permissions' className='add_info_headers'>Update Movie </div><input className='permission_inputs'  type={"checkbox"} name={"Update Movie"} onChange={Check_View_Movie} /><br></br></div><br></br>
       <div className='AddMoviecontainer'>
-      <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
+      <button className='AddMovieButtons' onClick={Send}>Add</button>
       <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
       </div>
-
-</div>
+      </div>
+      </div>
 }
 export default AddUser;

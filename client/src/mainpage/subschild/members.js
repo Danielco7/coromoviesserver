@@ -32,8 +32,8 @@ function Member(props) {
           City:{props.member.city}
           <br></br> 
         <div className='moviecontainer'>
-          {props.user.admin? <button  className='membersbuttons' onClick={Edit}>edit</button>:button1==="Update Subscription"? <button onClick={Edit}>edit</button>:null}
-          {props.user.admin? <button  className='membersbuttons' onClick={() => {
+          {props.user.admin? <button  className='moviebuttons membersbuttons1' onClick={Edit}>edit</button>:button1==="Update Subscription"? <button onClick={Edit}>edit</button>:null}
+          {props.user.admin? <button  className='moviebuttons membersbuttons2' onClick={() => {
             if (window.confirm("Delete this member?")) {Delete()}
           }}>delete</button>:button2==="Delete Subscriptions"? <button onClick={() => {
             if (window.confirm("Delete this movie?")) {Delete()}

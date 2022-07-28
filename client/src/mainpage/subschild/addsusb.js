@@ -7,6 +7,27 @@ function Newsubs(props) {
     const [movieerr, setmovieErr] = useState("")
     const [DateInput, setDateInput] = useState("")
     const [dateerr, setdateErr] = useState("")
+    const [mindate, setmindate] = useState("")
+
+
+    useEffect(() => {
+        const getmindate = async() => {
+            var dtToday = new Date();
+    
+            var month = dtToday.getMonth() + 1;
+            var day = dtToday.getDate();
+            var year = dtToday.getFullYear();
+            if(month < 10)
+                month = '0' + month.toString();
+            if(day < 10)
+                day = '0' + day.toString();
+            
+            var minDate= year + '-' + month + '-' + day;
+            console.log(minDate);
+            setmindate(minDate)
+     }
+         getmindate()
+     }, [])
 
    const handlechange=async(e)=> {
         setMovieInput(e.target.value)
@@ -34,6 +55,7 @@ function Newsubs(props) {
    const Cancel=async(e)=> {
        props.cancel(e)
 
+
    }
     return <div>
         
@@ -43,7 +65,7 @@ function Newsubs(props) {
             <option key={y} value={x._id} >{x.name}</option> )}</select>
             <br></br>
 
-        Date: <input className='AddMovieInput' type={"date"} onChange={e =>{setMovie({ ...Movie, date: e.target.value })
+        Date: <input className='AddMovieInput' min={mindate} type={"date"} onChange={e =>{setMovie({ ...Movie, date: e.target.value })
         setDateInput(e.target.value)}} /><br></br>
         <span className="text-danger">{movieerr}</span> <span className="text-danger">{dateerr}</span> <br></br>
         <div className='moviecontainer'>
