@@ -367,7 +367,7 @@
   .search > div > input {
     color: rgb(255, 0, 0);
     font-size: 16px;
-    background: transparent;
+    background: rgb(175, 175, 175);
     width: 25px;
     height: 25px;
     padding: 10px;
@@ -629,7 +629,7 @@ overflow:hidden;
 }
 .search {
   margin: 20px;
-  margin-right: 40px;
+  margin-right: 50px;
   margin-left: auto;
 }
 .Memebrs{
