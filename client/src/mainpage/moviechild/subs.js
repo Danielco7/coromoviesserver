@@ -14,16 +14,18 @@ function Subs(props) {
             const allsubstomovie=[]
             for (let i = 0; i < filtered.length; i++) {
                 const element = filtered[i];
-                const array=element.movies.find(function (elem) {
-                    return elem.movieId === props.movie._id;
-                })
+                const array1=element.movies.filter(elem => elem.movieId === props.movie._id)
+                for (let i = 0; i < array1.length; i++) {
+                    const element2 = array1[i];
+                    
+               
                 const { data } = await getById(urlmembers,element.memberId)
                     const obj ={
-                        date:array.date,
+                        date:element2.date,
                         member:data.name             
                     }; 
                     allsubstomovie.push(obj)
-                    console.log(allsubs);
+                     }
             }; 
             setsubs(allsubstomovie)
         }
@@ -33,10 +35,10 @@ function Subs(props) {
      const showmovie=async(e)=> props.membertoshow(e.target.innerHTML);
 
     return <div >
-        <ul>{allsubs.length>0?allsubs.map((user, index) => {
-                return <li key={index}>
+        <ul>{allsubs.length>allsubs.length-1?allsubs.map((user, index) => {
+                return <div key={index} className='ilsubs'>
                     <span className={"spam"} onClick={showmovie}>{user.member}</span> - {user.date}
-                </li>
+                </div>
             }):<div>no Subscriptions</div>}
         </ul>
 

@@ -73,7 +73,7 @@ function SubsPage(props) {
 
      const Delete = async(e) => {
        if (Members.length>10) {
-          const  { data } = await getAll(urlsubs)
+         const  { data } = await getAll(urlsubs)
          const filtered =data.find(meb => meb.memberId === e._id)
          if (filtered!=undefined) {
              const { data:data2 } = await deleteObj(urlsubs,filtered._id)

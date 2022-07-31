@@ -101,7 +101,6 @@ function MoviesPage(props) {
  }
  const Delete=async(e,value2)=> {
    if (Movies.length>7) {
-      console.log(e._id);
       const { data:data1 } = await deleteObj(urlmovie,e._id)
       const { data } = await getAll(urlmovie)
       setMovies(data)
@@ -140,7 +139,7 @@ const membertoshow= async(e)=> props.showmember(e)
 const imgclick=async(e)=> {
   await setMovieToShow('');
     await setMovieToShow(e);
-   console.log(window.innerWidth); 
+    setDisplayAllMovies(false)
     window.scrollTo(0, 1000);
   }
 
@@ -161,7 +160,7 @@ const imgclick=async(e)=> {
   </div>
 </div>:null}
         </div><br></br>
-        {MovieToShow.name!==undefined?<ShowMovie cancel={allmovies} update={updatemovie} displaymember={membertoshow} movie={MovieToShow} user={props.user} subs={props.subs}/>:null}
+        {MovieToShow.name!==undefined?<div className='add_movie_continer'><ShowMovie cancel={allmovies} update={updatemovie} displaymember={membertoshow} movie={MovieToShow} user={props.user} subs={props.subs}/></div>:null}
         {DisplayAllMovies?
         <div className='innerswiper' >
             {Movies.length > 0 ?  <div id='slider123'>  

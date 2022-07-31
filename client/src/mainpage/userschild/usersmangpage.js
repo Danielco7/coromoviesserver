@@ -23,7 +23,6 @@ function UsersPage(props) {
         async function getusers() {
              const { data } = await getAll(usersurl)
              data.splice(0,2)
-             console.log(data);
             await setusers(data)
             await setcheckusers(true)
      }

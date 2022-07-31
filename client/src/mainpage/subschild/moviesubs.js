@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAll,addObj,getById,updateObj} from '../../utils';
+import { getAll,addObj,getById,updateObj,deleteObj} from '../../utils';
 import Newsubs from './addsusb';
 const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
 const urlmembers = "https://coromovies.herokuapp.com/api/Members"
@@ -32,14 +32,17 @@ function MovieSubs(props) {
                     date:elementt.date
                     }
                     if (new Date() > new Date(elementt.date)) {
-                        console.log('hello');
                     }
-                    console.log(elementt.date);
                    if (obj.name!==undefined&&new Date() <= new Date(obj.date)) allsubmovies.push(obj)
-                   else{allneedtodelsubs.push(obj)}
-                   console.log(allneedtodelsubs);
+                   else{allneedtodelsubs.push(data)}
                 }
                 }
+            }
+            for (let i = 0; i < allneedtodelsubs.length; i++) {
+                const element = allneedtodelsubs[i];
+                const { data } = await deleteObj(urlsubs,'element._id')
+                console.log(element);
+                
             }
              setsubedmovies(allsubmovies)
              setneedtodel(allneedtodelsubs)

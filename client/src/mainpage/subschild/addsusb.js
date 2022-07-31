@@ -13,7 +13,6 @@ function Newsubs(props) {
     useEffect(() => {
         const getmindate = async() => {
             var dtToday = new Date();
-    
             var month = dtToday.getMonth() + 1;
             var day = dtToday.getDate();
             var year = dtToday.getFullYear();
@@ -23,7 +22,6 @@ function Newsubs(props) {
                 day = '0' + day.toString();
             
             var minDate= year + '-' + month + '-' + day;
-            console.log(minDate);
             setmindate(minDate)
      }
          getmindate()

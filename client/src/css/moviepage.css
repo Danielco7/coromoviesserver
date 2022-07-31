@@ -89,6 +89,21 @@
     margin-right: 170px;
     margin-left: auto;
   }
+
+  .Memebrs{
+    position: relative;
+    width: 270px;
+    height: 100%;
+    min-height: 390px;
+    max-height: 440px;
+    background-color: #363639;
+    border-radius: 15px;
+    transition: 0.5s;
+    overflow:hidden; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+  
+  }
   /* .AddMovieButtons , .EditMovieButtons {
     background-color: #555;
     color: white;
@@ -120,10 +135,10 @@
     border-radius: 5px;
   }
   .movie_edit_info{
-    margin-right: 15%;
+    margin-right: 12%;
     margin-left: auto;
     margin-top: 40px;
-
+    font-size: 18px;
   }
   .edit_img_cont{
     height:220px;
@@ -149,7 +164,7 @@
   }
 
   .AddMovie ,.EditMovie{
-    background-color: #0f0f11;
+    background-color: #13131c;
     width: 50%;
     min-height: 340px;
     border-radius: 20px;
@@ -284,6 +299,16 @@
       margin-left: 25.5vw;
       margin-top: 150px;
     }
+}
+#display_svg{
+  width: 600px;
+  top: -162px;
+  left: 35px;
+}
+#movieshowercont{
+  min-height: 440px;
+  border: #ffffff 2px solid;
+
 }
 }
 
@@ -425,26 +450,22 @@
   margin: auto;
 }
 
-.Memebrs{
-  position: relative;
-  width: 270px;
-  height: 100%;
-  min-height: 390px;
-  max-height: 440px;
-  background-color: #363639;
-  border-radius: 15px;
-  transition: 0.5s;
-  overflow:hidden; 
-  padding-top: 10px;
-  padding-bottom: 10px;
 
-}
 .subslist{
   max-height: 100px;
   overflow-y:auto; 
   overflow-y:scroll;
   display: flex;
-  flex-direction:column-reverse ;
+  flex-direction:column ;
+  justify-content: right;
+  width: 101%;
+  margin-left: -6px;
+}
+.ilsubs{
+  border-bottom: white 1px solid;
+  width: 93%;
+  /* border: aqua 4px solid; */
+
 }
 
 .subslist::-webkit-scrollbar {
@@ -452,7 +473,7 @@
 }
 
 .subslist::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.884);
+  background-color: rgb(115, 108, 108);
   border-radius: 70px;
 
 }
@@ -482,7 +503,10 @@
   color: #8cdef5;
 }
 
-
+.users_name{
+  height: 30px;
+  overflow: hidden;
+}
 
 .mobile_map_display div {
   display: inline-block;
@@ -499,8 +523,7 @@
   }
   .undo{
     position: relative;
-    right: 27%;
-    top: 20px; 
+    left: 50px;
     cursor: pointer;
     display: inline;
     margin-bottom: -50px;
@@ -518,7 +541,7 @@
   .undo{
     position: relative;
     right: 30%;
-    top: 20px; 
+    top: -20px; 
     cursor: pointer;
     display: inline;
     margin-bottom: -50px;
@@ -609,6 +632,31 @@ overflow:hidden;
   margin-right: 40px;
   margin-left: auto;
 }
+.Memebrs{
+  position: relative;
+  width: 270px;
+  height: 50px;
+  background-color: #363639;
+  border-radius: 15px;
+  transition: 0.5s;
+  overflow:hidden; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+  -webkit-transition: height 0.35s ease-in-out;
+}
+.Memebrs:hover{
+  position: relative;
+  width: 270px;
+  height: 370px;
+  background-color: #25252b;
+  border-radius: 15px;
+  transition: 0.5s;
+  overflow:hidden; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+}
 .moviebuttons{
   background-color: #555;
   color: white;
@@ -645,12 +693,6 @@ overflow:hidden;
 .edit_img{
   height: 150px;
 }
-.EditMovie{
-  background-color: #292933;
-  height: 550px;
-}
-
-
 
 .svg_add_movie{
   width: 175px;
@@ -675,7 +717,7 @@ overflow:hidden;
 }
 
 .AddMovie ,.EditMovie{
-  background-color: #0f0f11;
+  background-color: #13131c;
   width: 96%;
   min-height: 340px;
   border-radius: 20px;
@@ -683,7 +725,7 @@ overflow:hidden;
   border: #3f3d56 1px solid;
   font-size: 1.5em;
   margin: auto;
-  margin-left: 5%;
+  margin-right:-10px;
   margin-top: 50px;
   padding-top: 45px;
   padding-bottom: 40px;
@@ -739,7 +781,7 @@ overflow:hidden;
       margin-top: 210px;}
 }
 .moviepage{
-  min-height: 1900px;
+  min-height: 700px;
 }
 
 .membersbuttons1{
@@ -816,6 +858,22 @@ overflow:hidden;
       margin-right: 20px;
       margin-top: 150px;
     }
+}
+#display_svg{
+  width: 270px;
+  left: 35px;
+  top: -73px;
+}
+#movieshowercont{
+  min-height: 440px;
+  border: #ffffff 2px solid;
+
+}
+#movieshowercont_img{
+  margin-top: -20px;
+}
+.movie_edit_info{
+  font-size: 18px;
 }
 }
 

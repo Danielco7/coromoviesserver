@@ -17,7 +17,7 @@ function User(props) {
     }
 
     return <div className='Memebrs'>
-        <h4>{`${props.user.fname} ${props.user.Lname}`}</h4>
+        <h3 className='users_name'>{`${props.user.fname} ${props.user.Lname}`}</h3>
         <h4>User Name: {props.user.username}</h4>
         
         <div className='moviecontainer'>
