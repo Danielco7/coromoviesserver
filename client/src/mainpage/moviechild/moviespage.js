@@ -160,7 +160,7 @@ const imgclick=async(e)=> {
   </div>
 </div>:null}
         </div><br></br>
-        {MovieToShow.name!==undefined?<div className='add_movie_continer'><ShowMovie cancel={allmovies} update={updatemovie} displaymember={membertoshow} movie={MovieToShow} user={props.user} subs={props.subs}/></div>:null}
+        {MovieToShow.name!==undefined?<div className='add_movie_continer' ><ShowMovie cancel={allmovies} update={updatemovie} displaymember={membertoshow} movie={MovieToShow} user={props.user} subs={props.subs}/></div>:null}
         {DisplayAllMovies?
         <div className='innerswiper' >
             {Movies.length > 0 ?  <div id='slider123'>  

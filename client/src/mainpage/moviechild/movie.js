@@ -38,15 +38,14 @@ function Movie(props) {
         <h3 className='header'>{props.movie.name}</h3>
         <div className='imgcont'>
         <img className='imges' src={props.movie.image} onClick={ShowMovie}/>
-        </div> 
-        <p>{props.movie.genres}</p>
+        </div>  <br></br>
            <div className='moviecontainer'>
-        {props.user.admin? <button className='moviebuttons' onClick={Edit}>edit</button>:CheckUpadteButton==="Update Movie"? <button onClick={Edit}>edit</button>:null}
+        {props.user.admin? <button className='moviebuttons' onClick={Edit}>edit</button>:CheckUpadteButton==="Update Movie"? <button className='moviebuttons' onClick={Edit}>edit</button>:null}
         {props.user.admin? <button className='moviebuttons' onClick={() => {
             if (window.confirm("Delete this movie?")) {Delete()}
           }}
         >
-        delete</button>:CheckDeleteButton==="Delete Movies"? <button onClick={() => {
+        delete</button>:CheckDeleteButton==="Delete Movies"? <button className='moviebuttons' onClick={() => {
             if (window.confirm("Delete this movie?")) {Delete()}
           }}>delete</button>:null}
         </div>

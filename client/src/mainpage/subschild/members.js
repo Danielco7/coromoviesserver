@@ -27,15 +27,15 @@ function Member(props) {
     const showmovie = async(e) => props.displaymovie(e)
 
     return <div className='Memebrs' >
-          <h4>{props.member.name}</h4>
+          <h4 className='users_name'>{props.member.name}</h4>
           Email:{props.member.email}<br></br>
           City:{props.member.city}
           <br></br> 
         <div className='moviecontainer'>
-          {props.user.admin? <button  className='moviebuttons membersbuttons1' onClick={Edit}>edit</button>:button1==="Update Subscription"? <button onClick={Edit}>edit</button>:null}
+          {props.user.admin? <button  className='moviebuttons membersbuttons1' onClick={Edit}>edit</button>:button1==="Update Subscription"? <button className='moviebuttons membersbuttons1' onClick={Edit}>edit</button>:null}
           {props.user.admin? <button  className='moviebuttons membersbuttons2' onClick={() => {
             if (window.confirm("Delete this member?")) {Delete()}
-          }}>delete</button>:button2==="Delete Subscriptions"? <button onClick={() => {
+          }}>delete</button>:button2==="Delete Subscriptions"? <button className='moviebuttons membersbuttons1' onClick={() => {
             if (window.confirm("Delete this movie?")) {Delete()}
           }}>delete</button>:null}
         </div>
