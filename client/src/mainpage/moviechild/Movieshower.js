@@ -3,6 +3,8 @@ import Subs from './subs';
 import Logo from '../../imgs/display_movie.svg'
 const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
 const urlmembers = "https://coromovies.herokuapp.com/api/Members"
+const urlimgs = "https://image.tmdb.org/t/p/w500"
+
 
 function ShowMovie(props) {
     const [Checksubs, setChecksubs] = useState(false)
@@ -27,7 +29,7 @@ function ShowMovie(props) {
 </svg></div>
      <img id='display_svg' className='svg_add_movie' src={Logo}/>
 
-    <div className='edit_img_cont' id='movieshowercont_img'><img  className='edit_img' src={props.movie.image}/></div>
+    <div className='edit_img_cont' id='movieshowercont_img'><img  className='edit_img' src={urlimgs+props.movie.image}/></div>
     <div className='movie_edit_info'>
     <h3>{props.movie.name}</h3>{props.movie.premired.split('T')[0]}<br></br>
     <h3>{props.movie.genres}</h3>

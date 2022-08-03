@@ -71,7 +71,7 @@ function AddUser(props) {
         var window2=document.getElementById('AddUser2')
         window1.style.animation = "hide_left1 0.8s"
         window1.style.position = "absolute"
-        window2.style.animation=("active_left1 0.9s");
+        window2.style.animation="active_left1 0.9s";
         window2.style.animationFillMode = "forwards";
         window2.style.animationDelay = "0.7s";
       }
@@ -139,7 +139,6 @@ function AddUser(props) {
                     handleChange(e)
     }
     const Send= async()=>{
-        console.log('asdas');
         user.premissions=Permissions
         user.admin=false
         user.created=date

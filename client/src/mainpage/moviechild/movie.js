@@ -3,6 +3,8 @@ import Subs from './subs';
 import {CSSTransition} from 'react-transition-group';
 import ShowMovie from './Movieshower';
 const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
+const urlimgs = "https://image.tmdb.org/t/p/w500"
+
 
 function Movie(props) {
     const [CheckUpadteButton, setCheckUpadteButton] = useState('')
@@ -37,7 +39,7 @@ function Movie(props) {
     return <div className='movies' >
         <h3 className='header'>{props.movie.name}</h3>
         <div className='imgcont'>
-        <img className='imges' src={props.movie.image} onClick={ShowMovie}/>
+        <img className='imges' src={urlimgs+props.movie.image} onClick={ShowMovie}/>
         </div>  <br></br>
            <div className='moviecontainer'>
         {props.user.admin? <button className='moviebuttons' onClick={Edit}>edit</button>:CheckUpadteButton==="Update Movie"? <button className='moviebuttons' onClick={Edit}>edit</button>:null}

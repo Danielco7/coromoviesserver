@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../imgs/edit_movie.svg';
 
+const urlimgs = "https://image.tmdb.org/t/p/w500"
+
 function EditMovie(props) {
     const [Movie, setMovie] = useState(props.movie)
     const [name, setname] = useState('')
@@ -51,7 +53,7 @@ function EditMovie(props) {
 
     return <div className='EditMovie'>
         <img className='svg_add_movie' src={Logo}/>
-        <div className='edit_img_cont'><img className='edit_img' src={props.movie.image}/></div>
+        <div className='edit_img_cont'><img className='edit_img' src={urlimgs+props.movie.image}/></div>
         <div className='movie_edit_info'>
             <div className='AddMovieInput_cont'>
     <div className='add_info_headers'>Name: </div><input className='EditMovieInput' defaultValue={props.movie.name} onChange={e => {setMovie({ ...Movie, name: e.target.value })

@@ -59,7 +59,6 @@ function SubsPage(props) {
         setcheckallmembers(false)
         setcheckeditmember(false)
         setMembers(BackUpMembersArry)
-
  }
     const addnewmember = async(e) => {
         setcheckaddmember(false)

@@ -205,7 +205,6 @@ function EditUser(props) {
         window2.style.animationDelay = "0.7s";
       }
       const Send= async()=>{
-        console.log('asdas');
         user.premissions=Permissions
         props.update(user)
         props.cancel()

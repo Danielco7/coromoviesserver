@@ -70,7 +70,6 @@ function Logging({ history}) {
         
         const remove=async()=> {
         const { data:data1 } = await getAll(urlmovie)
-        console.log(data1);
         if (data1.length>0) {
         for (let i = 0; i < data1.length; i++) {
             const element = data1[i];
@@ -79,7 +78,6 @@ function Logging({ history}) {
        }
     
        const { data:data2 } = await getAll(urlmembers)
-       console.log(data2);
         if (data2.length>0) {
             for (let i = 0; i < data2.length; i++) {
                 const element = data2[i];
@@ -88,7 +86,6 @@ function Logging({ history}) {
         }
         
         const { data:data3 } = await getAll(url)
-        console.log(data3);
          if (data3.length>0) {
              for (let i = 0; i < data3.length; i++) {
                  const element = data3[i];
@@ -97,17 +94,14 @@ function Logging({ history}) {
          }
          }
         const add=async()=>{
-        console.log(MovieJson);
         for (let i = 0; i < MovieJson.length; i++) {
             const element = MovieJson[i];
              const { data:data11 } = await addObj(urlmovie,element)
         }
-            console.log(MemberJson);
             for (let i = 0; i < MemberJson.length; i++) {
                 const element = MemberJson[i];
                  const { data:data22 } = await addObj(urlmembers,element)
             }
-            console.log(WorkersJson);
             for (let i = 0; i < WorkersJson.length; i++) {
                 const element = WorkersJson[i];
                  const { data:data33 } = await addObj(url,element)
@@ -182,8 +176,8 @@ function Logging({ history}) {
         <div id='add_movie_continer'></div>
         <div id='parent' className='parent'>
         <sup className='info'>&#9432; </sup> 
-        <span className="tooltipcont"><div className="tooltiptext"><img id='info_svg' className='svg_add_movie' src={Logo}/><h1>Hello and wellcome </h1> <h5>this site is a multi function workers inviorment that orgnize movies, members and employes in one place i will be your guid at any time you can simply hover at the info icon as shown.<sup >&#9432;</sup><br></br>
-        here employes can log in to there account if you dont have one you need to ask for a manger of simply log in as a guest.</h5></div></span>
+        <span className="tooltipcont"><div className="tooltiptext"><img id='info_svg' className='svg_add_movie' src={Logo}/><h1>Hello and wellcome </h1> <h5>This site is a multi function workers inviorment that orgnize movies, members and employes in one place i will be your guid at any time you can simply hover at the info icon as shown.<sup >&#9432;</sup><br></br>
+        Here employes can log in to there account if you dont have one you need to ask for a manger of simply log in as a guest.</h5></div></span>
         <div className='sign-in-img'>
         </div>
         <div className='sign-up-img'>

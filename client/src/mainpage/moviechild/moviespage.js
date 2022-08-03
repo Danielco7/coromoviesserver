@@ -94,10 +94,14 @@ function MoviesPage(props) {
     const addnewmovie=async(e)=> {
         setDisplayAddMoviePage(false)
         setDisplayAllMovies(true)
-        const { data:data1 } = await addObj(urlmovie,e)
-        const { data } = await getAll(urlmovie) 
-        setMovies(data)
-
+        const found = Movies.find(({ original_title }) => original_title  == e.original_title);
+        if (found==undefined) {
+          const { data:data1 } = await addObj(urlmovie,e)
+          const { data } = await getAll(urlmovie) 
+          setMovies(data)
+        }else{
+          alert("This movie is allready in the collection")
+        }
  }
  const Delete=async(e,value2)=> {
    if (Movies.length>7) {
@@ -143,7 +147,7 @@ const imgclick=async(e)=> {
     window.scrollTo(0, 1000);
   }
 
-    return <div className='moviepage'>
+    return <div className='moviepage' id='moviepage1'>
       <div className="container">
         <div id='imgbackground'/>
         <h1 id='titlee'>Movies</h1>

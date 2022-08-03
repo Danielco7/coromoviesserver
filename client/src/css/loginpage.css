@@ -40,6 +40,8 @@
     width: 103%;
     height: 100%;
     backdrop-filter: blur(3px);
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
   .sign-in-img{
       left: 50%;

@@ -41,7 +41,6 @@ function MovieSubs(props) {
             for (let i = 0; i < allneedtodelsubs.length; i++) {
                 const element = allneedtodelsubs[i];
                 const { data } = await deleteObj(urlsubs,'element._id')
-                console.log(element);
                 
             }
              setsubedmovies(allsubmovies)
