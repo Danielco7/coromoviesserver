@@ -94,20 +94,24 @@ function MoviesPage(props) {
     const addnewmovie=async(e)=> {
         setDisplayAddMoviePage(false)
         setDisplayAllMovies(true)
-        const found = Movies.find(({ original_title }) => original_title  == e.original_title);
+        const found = Movies.find(({ image }) => image  == e.image);
+        console.log(e.image);
+        console.log(found);
         if (found==undefined) {
           const { data:data1 } = await addObj(urlmovie,e)
           const { data } = await getAll(urlmovie) 
           setMovies(data)
+          setBackUpMoviesArry(data)
         }else{
           alert("This movie is allready in the collection")
         }
  }
  const Delete=async(e,value2)=> {
-   if (Movies.length>7) {
+   if (BackUpMoviesArry.length>7) {
       const { data:data1 } = await deleteObj(urlmovie,e._id)
       const { data } = await getAll(urlmovie)
       setMovies(data)
+      setBackUpMoviesArry(data)
      }else{
        alert('the number of movies is less then allowed ')
      }
@@ -116,7 +120,7 @@ function MoviesPage(props) {
   const Serch=async(e)=> {
     if (e.target.value.length>0) {
         const array=BackUpMoviesArry
-        const small=array.map((name) => name.name.toLowerCase()).filter(name => name.includes(e.target.value))
+        const small=array.map((name) => name.name.toLowerCase()).filter(name => name.includes(e.target.value.toLowerCase()))
         const res = array.filter(item => small.includes(item.name.toLowerCase()));
          setMovies(res);
     }else setMovies(BackUpMoviesArry)

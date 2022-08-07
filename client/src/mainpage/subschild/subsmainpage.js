@@ -71,7 +71,7 @@ function SubsPage(props) {
 }
 
      const Delete = async(e) => {
-       if (Members.length>10) {
+       if (BackUpMembersArry.length>10) {
          const  { data } = await getAll(urlsubs)
          const filtered =data.find(meb => meb.memberId === e._id)
          if (filtered!=undefined) {
@@ -79,8 +79,8 @@ function SubsPage(props) {
          }
          const { data:data3 } = await deleteObj(urlmembers,e._id)
          const { data:data4 } = await getAll(urlmembers)
-            setMembers(data4)
-    
+        setMembers(data4)
+        setBackUpMembersArry(data4)
        }else{
          alert('the number of members is less then allowed')
        }
@@ -110,7 +110,7 @@ function SubsPage(props) {
     const Serch=async(e)=> {
         if (e.target.value.length>0) {
             const array=BackUpMembersArry
-            const small=array.map((name) => name.name.toLowerCase()).filter(name => name.includes(e.target.value))
+            const small=array.map((name) => name.name.toLowerCase()).filter(name => name.includes(e.target.value.toLowerCase()))
             const res = array.filter(item => small.includes(item.name.toLowerCase()));
              setMembers(res);
         }else setMembers(BackUpMembersArry)

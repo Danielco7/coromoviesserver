@@ -66,7 +66,7 @@ function UsersPage(props) {
     async function Add(e) {
         const { data2 } = await addObj(usersurl,e)
         const { data } = await getAll(usersurl)
-             data.splice(0,1)
+             data.splice(0,2)
         await setusers(data)
         await setcheckusers(true)
         await setchecknewuser(false)
@@ -77,7 +77,7 @@ function UsersPage(props) {
     if (Users.length>5) {
               const { data2 } = await deleteObj(usersurl,e._id)
         const { data } = await getAll(usersurl)
-             data.splice(0,1)
+             data.splice(0,2)
             await setusers(data)
     }else{
       alert('the number of users is less then allowed')
