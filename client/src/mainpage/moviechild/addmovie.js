@@ -82,14 +82,14 @@ const Check_And_Send =async()=> {
         <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
      </div>
 
-     <div className='AddMovie1' id='AddUser2'>    
+     <div className='EditMovie2' id='AddUser2' >    
        <img className='svg_add_movie' src={Logo}/>
-      <div className='undo' onClick={Undo}><svg width="40" height="40" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M58.625 30.7083H17.9057L32.682 15.932L28.7346 11.9846L7.21924 33.5L28.7346 55.0154L32.682 51.068L17.9057 36.2917H58.625V30.7083Z" fill="white"/>
-</svg></div><h1> New Movie: </h1>
+       <div className='undo' onClick={Undo}><svg width="40" height="40" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M58.625 30.7083H17.9057L32.682 15.932L28.7346 11.9846L7.21924 33.5L28.7346 55.0154L32.682 51.068L17.9057 36.2917H58.625V30.7083Z" fill="white"/></svg></div><br></br>
   
-      
        <span className='edit_img_cont' ><img className='edit_img' src={urlimgs+imageErr}/></span><br></br>
+       <div className='movie_edit_info'>
+      
        <div className='AddMovieInput_cont'>
        <div className='add_info_headers'>Name: </div><span >{nameErr}</span> <br></br> </div>
         
@@ -105,10 +105,11 @@ const Check_And_Send =async()=> {
 
         <div className='AddMovieInput_cont'>
         <div className='add_info_headers'>Premired: </div><span >{premiredErr}</span><br></br></div>
-        
+        <br></br>
         <div className='AddMoviecontainer'>
         <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
         <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
+        </div>
         </div>
 </div>
     </div>

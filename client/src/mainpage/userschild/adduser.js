@@ -146,6 +146,15 @@ function AddUser(props) {
         props.add(user)
     }
 
+    const Undo=async(e)=> {
+        var window1=document.getElementById('AddUser')
+        var window2=document.getElementById('AddUser2')
+        window2.style.animation="hide_right1 0.9s";
+        window1.style.animation = "active_right1 0.9s"
+        window1.style.animationFillMode = "forwards";
+        window1.style.animationDelay = "0.2s";
+
+    }
      
     const Cancel = async() => props.cancel()
 
@@ -172,6 +181,8 @@ function AddUser(props) {
 </div>
 <div className='AddMovie1' id='AddUser2'>
 <img  className='svg_add_movie' src={Logo}/>
+<div className='undo' onClick={Undo}><svg width="40" height="40" viewBox="0 0 67 67" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M58.625 30.7083H17.9057L32.682 15.932L28.7346 11.9846L7.21924 33.5L28.7346 55.0154L32.682 51.068L17.9057 36.2917H58.625V30.7083Z" fill="white"/></svg></div>
       Permissions: <br></br>
       <div className='AddMovieInput_cont'>
       <div id='Permissions' className='add_info_headers'>View Subscriptions </div><input className='permission_inputs'  type={"checkbox"} name={"View Subscriptions"}  onChange={subschecks} checked={subscheck} disabled={dissablesubs} /><br></br></div>
