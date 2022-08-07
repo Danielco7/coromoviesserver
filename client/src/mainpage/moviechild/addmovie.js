@@ -6,17 +6,13 @@ import SearchBar from './Search_new_movie';
 
 const urlmovie = "https://api.themoviedb.org/3/discover/movie?api_key=839f4ba0e44105f4dc52e2a5d002041c&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
 
+const urgeners = "https://api.themoviedb.org/3/genre/movie/list?api_key=839f4ba0e44105f4dc52e2a5d002041c&language=en-US"
 const urlimgs = "https://image.tmdb.org/t/p/w500"
 
 function AddMovie(props) {
-    const [Movie, setMovie] = useState({})
-    const [name, setname] = useState('')
     const [nameErr, setnameErr] = useState('')
-    const [genres, setgenres] = useState([])
-    const [genresErr, setgenresErr] = useState('')
-    const [image, setimage] = useState('')
+    const [genresErr, setgenresErr] = useState([])
     const [imageErr, setimageErr] = useState('')
-    const [premired, setpremired] = useState('')
     const [premiredErr, setpremiredErr] = useState('')
     const [MovieToShow, setMovieToShow] = useState('')
 
@@ -32,6 +28,12 @@ function AddMovie(props) {
 
 
 const Check_And_Send =async()=> {
+    console.log(genresErr);
+    for (let i = 0; i < genresErr.length; i++) {
+        const element = genresErr[i];
+        console.log(element);
+        
+    }
         let movie={name:nameErr,
             genres:genresErr,
             image:imageErr,
@@ -43,8 +45,15 @@ const Check_And_Send =async()=> {
       const Cancel=async()=>  props.cancel()
       
       const inputdata=async(e)=> {
+        setgenresErr([])
         setnameErr(e.original_title)
-        setgenresErr(e.genre_ids)
+        for (let i = 0; i < e.genre_ids.length; i++) {
+            const element = e.genre_ids[i];
+            const { data } = await getAll(urgeners)
+            console.log(element);
+        const found = data.genres.find(({ id }) => id == element);
+        setgenresErr(genresErr => [...genresErr,`${found.name} `])
+        }
         setimageErr(e.poster_path)
         setpremiredErr(e.release_date)
         var window1=document.getElementById('AddUser')
@@ -101,7 +110,6 @@ const Check_And_Send =async()=> {
         <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
         <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
         </div>
-
 </div>
     </div>
 }
