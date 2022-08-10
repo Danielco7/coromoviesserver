@@ -7,6 +7,7 @@ const moviesschem = new Schema({
     genres:Array,
     image:String,
     premired:Date,
+    id:String,
 })
 
 module.exports = mongoose.model('Movies', moviesschem);

@@ -14,6 +14,7 @@ function AddMovie(props) {
     const [genresErr, setgenresErr] = useState([])
     const [imageErr, setimageErr] = useState('')
     const [premiredErr, setpremiredErr] = useState('')
+    const [IDErr, setIDErr] = useState('')
     const [MovieToShow, setMovieToShow] = useState('')
 
 
@@ -37,7 +38,8 @@ const Check_And_Send =async()=> {
         let movie={name:nameErr,
             genres:genresErr,
             image:imageErr,
-            premired:premiredErr
+            premired:premiredErr,
+            id:IDErr
         }
         props.add(movie)
       }
@@ -56,6 +58,7 @@ const Check_And_Send =async()=> {
         }
         setimageErr(e.poster_path)
         setpremiredErr(e.release_date)
+        setIDErr(e.id)
         var window1=document.getElementById('AddUser')
         var window2=document.getElementById('AddUser2')
         window1.style.animation = "hide_left1 0.9s"

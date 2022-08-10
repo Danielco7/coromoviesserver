@@ -1,8 +1,11 @@
 import React, { useState,useEffect } from "react";
 import {useParams,useNavigate} from "react-router-dom";
+import { getAll,addObj,deleteObj,updateObj} from '../../utils';
 // import "./SearchBar.css";
 // import SearchIcon from "@material-ui/icons/Search";
 // import CloseIcon from "@material-ui/icons/Close";
+
+const urlsearch ='https://api.themoviedb.org/3/search/movie?api_key=839f4ba0e44105f4dc52e2a5d002041c&query='
 
 function SearchBar({ placeholder, data, input }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -13,24 +16,18 @@ function SearchBar({ placeholder, data, input }) {
   const Serch=async(e)=> {
     const searchWord = e.target.value;
     setWordEntered(searchWord);
-        const moviesarray=data
-        let searching =searchWord.toLowerCase() 
-        const newFilter=moviesarray.map((name) => name.title.toLowerCase()).filter(name => name.includes(searching))
-        var numberarr1 = newFilter.map( function(value) { 
-            return `${value}`
-        } );
+        const { data:data1 } = await getAll(urlsearch+searchWord)
+       const moviesarray = data1.results
     if (searchWord === "") {
         setFilteredData([]);
       } else {
-        setFilteredData(numberarr1);
+        setFilteredData(moviesarray);
       }
     };
     function Continue(e) {
-    const found = data.find(({ original_title }) => original_title.toLowerCase()  == e.toLowerCase());
-    setWordEntered(e)
     setFilteredData([])
     setWordEntered("")
-    input(found)
+    input(e)
      }
      function Clear() {
        setWordEntered("")
@@ -39,9 +36,7 @@ function SearchBar({ placeholder, data, input }) {
      function display_all_movie() {
        if (wordEntered=='') {
         const names =[]
-        data.forEach(({title}) => {names.push(title)
-          });
-          setFilteredData(names);
+          setFilteredData(data);
        }
      }
 
@@ -61,10 +56,10 @@ function SearchBar({ placeholder, data, input }) {
       </div>
       {filteredData.length != 0 && (
         <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
+          {filteredData.slice(0, 20).map(function(value, key)  {
 
                   return    <div className="dataItem" onClick={()=>Continue(value)} target="_blank">
-                  <p>{value}</p> 
+                  <p>{value.original_title}</p> 
                 </div>;
           })}
         </div>
