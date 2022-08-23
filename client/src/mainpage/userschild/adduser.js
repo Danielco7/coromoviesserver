@@ -139,6 +139,7 @@ function AddUser(props) {
                     handleChange(e)
     }
     const Send= async()=>{
+        document.getElementById('addbutton').disabled = true
         user.premissions=Permissions
         user.admin=false
         user.created=date
@@ -201,7 +202,7 @@ function AddUser(props) {
       <div className='AddMovieInput_cont'>
       <div id='Permissions' className='add_info_headers'>Update Movie </div><input className='permission_inputs'  type={"checkbox"} name={"Update Movie"} onChange={Check_View_Movie} /><br></br></div><br></br>
       <div className='AddMoviecontainer'>
-      <button className='AddMovieButtons' onClick={Send}>Add</button>
+      <button className='AddMovieButtons' id='addbutton'  onClick={Send}>Add</button>
       <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
       </div>
       </div>

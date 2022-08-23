@@ -1,13 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Subs from './subs';
 import Logo from '../../imgs/display_movie.svg'
-const urlsubs = "https://coromovies.herokuapp.com/api/Subs"
+import { getAll,addObj,deleteObj,updateObj} from '../../utils';
+
+
+
+const urlmovie = "https://api.themoviedb.org/3/movie/"
+const api = "?api_key=839f4ba0e44105f4dc52e2a5d002041c&language=en-US"
 const urlmembers = "https://coromovies.herokuapp.com/api/Members"
 const urlimgs = "https://image.tmdb.org/t/p/w500"
 
 
 function ShowMovie(props) {
     const [Checksubs, setChecksubs] = useState(false)
+    const [moviedata, setmoviedata] = useState(false)
+
+    useEffect(() => {
+        async function getmovie() {
+            const { data } = await getAll(urlmovie+props.movie.id+api)
+            console.log(data);
+            setmoviedata(data)
+     }
+         getmovie()
+     }, [])
 
     useEffect(() => {
         setChecksubs(false)
@@ -31,8 +46,9 @@ function ShowMovie(props) {
 
     <div className='edit_img_cont' id='movieshowercont_img'><img  className='edit_img' src={urlimgs+props.movie.image}/></div>
     <div className='movie_edit_info'>
-    <h3>{props.movie.name}</h3>{props.movie.premired.split('T')[0]}<br></br>
-    <h3>{props.movie.genres}</h3>
+    <div style={{display:"flex",justifyContent:"center",fontSize:'21px'}}>{props.movie.name} <div className='movie_premired'> ({props.movie.premired.split('T')[0].slice(0,4)})</div></div>
+    <div className='movie_geners'>{props.movie.genres}</div><br></br>
+    <div className='movie_premired'>OVERVIEW</div><div>{moviedata.overview}</div><br></br>
    <h3 onClick={showsubs} className='subbutgtton'>Subscriptions:</h3> 
     {props.user.admin?<div className='subslist'><Subs user={props.user} movie={props.movie} membertoshow={ShowMember}/></div>:props.subs==="View Subscriptions"?<div className='subslist'><Subs user={props.user} movie={props.movie}/></div>:null}
     </div>

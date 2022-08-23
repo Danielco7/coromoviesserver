@@ -24,7 +24,7 @@ function Subs(props) {
                         date:element2.date,
                         member:data.name             
                     }; 
-                    allsubstomovie.push(obj)
+                    if (obj.member!==undefined&&new Date() <= new Date(obj.date)) allsubstomovie.push(obj)
                      }
             }; 
             setsubs(allsubstomovie)

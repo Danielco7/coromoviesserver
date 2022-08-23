@@ -29,11 +29,8 @@ function AddMovie(props) {
 
 
 const Check_And_Send =async()=> {
-    console.log(genresErr);
     for (let i = 0; i < genresErr.length; i++) {
         const element = genresErr[i];
-        console.log(element);
-        
     }
         let movie={name:nameErr,
             genres:genresErr,
@@ -41,6 +38,7 @@ const Check_And_Send =async()=> {
             premired:premiredErr,
             id:IDErr
         }
+        document.getElementById('addbutton').disabled = true
         props.add(movie)
       }
 
@@ -110,7 +108,7 @@ const Check_And_Send =async()=> {
         <div className='add_info_headers'>Premired: </div><span >{premiredErr}</span><br></br></div>
         <br></br>
         <div className='AddMoviecontainer'>
-        <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
+        <button className='AddMovieButtons' id='addbutton' onClick={Check_And_Send}>Add</button>
         <button className='AddMovieButtons' onClick={Cancel}>cancel</button>
         </div>
         </div>

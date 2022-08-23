@@ -42,7 +42,7 @@ function MoviesPage(props) {
             if (props.moviedisplay.length>0) {
             const { data } = await getAll(urlmovie)
             const filtered =data.find(meb => meb.name === props.moviedisplay)
-              setMovieToShow(filtered);
+              imgclick(filtered);
              counter=1
             }
         }
@@ -52,6 +52,7 @@ function MoviesPage(props) {
             setBackUpMoviesArry(data)
            if (counter===0) {
                 setDisplayAllMovies(true)
+                console.log('2');
            }
     }
     const checkpossibility=async()=> {
@@ -145,9 +146,10 @@ const updatemovie= async(e)=> {
 const membertoshow= async(e)=> props.showmember(e)
 
 const imgclick=async(e)=> {
-  await setMovieToShow('');
+    await setMovieToShow('');
     await setMovieToShow(e);
-    setDisplayAllMovies(false)
+    await setDisplayAllMovies(false)
+    console.log('1');
     window.scrollTo(0, 1000);
   }
 

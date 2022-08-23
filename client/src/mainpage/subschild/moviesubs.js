@@ -16,9 +16,9 @@ function MovieSubs(props) {
     useEffect(() => {
         const getsubs = async()=> {
             const { data } = await getAll(urlsubs)
-            const filtered =data.find(meb => meb.memberId === props.member._id)
+            let filtered =data.find(meb => meb.memberId === props.member._id)
             const allsubmovies=[]
-            const allneedtodelsubs=[]
+            const allneedtosetsubs=[]
 
             if (filtered!==undefined) {
                 setsuber(filtered)
@@ -31,20 +31,20 @@ function MovieSubs(props) {
                     name:data.name,
                     date:elementt.date
                     }
-                    if (new Date() > new Date(elementt.date)) {
-                    }
                    if (obj.name!==undefined&&new Date() <= new Date(obj.date)) allsubmovies.push(obj)
-                   else{allneedtodelsubs.push(data)}
+
+                   const obj2={
+                    movieId:elementt.movieId,
+                    date:elementt.date
+                    }
+                   if (obj2.movieId!==undefined&&new Date() <= new Date(obj2.date)) allneedtosetsubs.push(obj2)
                 }
                 }
-            }
-            for (let i = 0; i < allneedtodelsubs.length; i++) {
-                const element = allneedtodelsubs[i];
-                const { data } = await deleteObj(urlsubs,'element._id')
-                
+                filtered.movies=allneedtosetsubs
+                const { data } = await updateObj(urlsubs,filtered._id,filtered)
             }
              setsubedmovies(allsubmovies)
-             setneedtodel(allneedtodelsubs)
+             setneedtodel(allneedtosetsubs)
              setsubs(true)
      }
          getsubs()

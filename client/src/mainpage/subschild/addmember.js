@@ -32,7 +32,8 @@ function AddMember(props) {
             setcityErr(cityError)
          return false
         }
-                 props.add(Member)
+       document.getElementById('addbutton').disabled = true
+         props.add(Member)
       }
 
       const Cancel=async()=> props.cancel()
@@ -52,7 +53,7 @@ function AddMember(props) {
     setcity(e.target.value)}}/><br></br></div>
     <span className="text-danger">{cityErr}</span><br></br>
     <div className='AddMoviecontainer'>
-    <button className='AddMovieButtons' onClick={Check_And_Send}>Add</button>
+    <button className='AddMovieButtons' id='addbutton' onClick={Check_And_Send}>Add</button>
     <button className='AddMovieButtons' onClick={Cancel}>Cancel</button>
     </div>
     </div>

@@ -47,6 +47,7 @@ function Newsubs(props) {
             setdateErr(dateError)
          return false
         }
+       document.getElementById('addbutton').disabled = true
         props.addsub(Movie)
 
     }
@@ -56,18 +57,17 @@ function Newsubs(props) {
 
    }
     return <div>
-        
-        Movie:<select className='AddMovieInput' onChange={handlechange}>
+        Movie:<select className='AddSubsInput' onChange={handlechange}>
          <option disabled selected value>select an option</option>
             {props.movies.map( (x,y) => 
             <option key={y} value={x._id} >{x.name}</option> )}</select>
             <br></br>
 
-        Date: <input className='AddMovieInput' min={mindate} type={"date"} onChange={e =>{setMovie({ ...Movie, date: e.target.value })
+        Date: <input className='AddSubsInput' min={mindate} type={"date"} onChange={e =>{setMovie({ ...Movie, date: e.target.value })
         setDateInput(e.target.value)}} /><br></br>
         <span className="text-danger">{movieerr}</span> <span className="text-danger">{dateerr}</span> <br></br>
         <div className='moviecontainer'>
-        <button className='membersbuttons' onClick={Check_And_Send}>add</button>
+        <button className='membersbuttons' id='addbutton' onClick={Check_And_Send}>add</button>
         <button className='membersbuttons' onClick={Cancel}>cencel</button>
         </div>
     </div>
