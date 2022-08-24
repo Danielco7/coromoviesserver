@@ -558,7 +558,7 @@ display: flex;
 cursor: pointer;
 }
 .subslist{
-  max-height: 70px;
+  max-height: 50px;
   overflow-y:auto; 
   overflow-y:scroll;
   display: flex;
@@ -888,6 +888,7 @@ cursor: pointer;
   position: relative;
   visibility: hidden;
   opacity: 0;
+  z-index: 3;
   animation-name: example;
   animation-duration: 0.6s;
   animation-fill-mode: forwards;
@@ -1113,6 +1114,37 @@ cursor: pointer;
   background-color: #0d0d0d;
   white-space: nowrap;
   overflow: hidden;
+}
+.subslist2{
+  max-height: 130px;
+  overflow-y:auto; 
+  overflow-y:scroll;
+  display: flex;
+  flex-direction:column ;
+  justify-content: right;
+  width: 101%;
+  margin-left: -6px;
+  font-size: 15px;
+}
+.ilsubs{
+  border-bottom: white 1px solid;
+  width: 93%;
+  /* border: aqua 4px solid; */
+
+}
+
+.subslist2::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.subslist2::-webkit-scrollbar-track {
+  background-color: rgb(115, 108, 108);
+  border-radius: 70px;
+
+}
+.subslist2::-webkit-scrollbar-thumb {
+  background-color: rgb(43, 43, 43, 0.884);
+  border-radius: 90px;
 }
 }
 

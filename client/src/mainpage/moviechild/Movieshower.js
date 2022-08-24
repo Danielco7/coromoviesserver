@@ -48,7 +48,7 @@ function ShowMovie(props) {
     <div className='movie_edit_info'>
     <div style={{display:"flex",justifyContent:"center",fontSize:'21px'}}>{props.movie.name} <div className='movie_premired'> ({props.movie.premired.split('T')[0].slice(0,4)})</div></div>
     <div className='movie_geners'>{props.movie.genres}</div><br></br>
-    <div className='movie_premired'>OVERVIEW</div><div>{moviedata.overview}</div><br></br>
+    <div className='movie_premired'>OVERVIEW</div><div className='subslist2'>{moviedata.overview}</div><br></br>
    <h3 onClick={showsubs} className='subbutgtton'>Subscriptions:</h3> 
     {props.user.admin?<div className='subslist'><Subs user={props.user} movie={props.movie} membertoshow={ShowMember}/></div>:props.subs==="View Subscriptions"?<div className='subslist'><Subs user={props.user} movie={props.movie}/></div>:null}
     </div>
