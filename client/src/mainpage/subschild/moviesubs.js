@@ -101,8 +101,8 @@ function MovieSubs(props) {
     }
 
     return <div  >
-        <h4>Subscriptions watched</h4>
-        <button className='membersbuttons'style={{}} onClick={newsubscribe}>Subscribe to new movie</button><br></br>
+        <h4>member subscribes</h4>
+        <button className='membersbuttons'style={{}} onClick={newsubscribe}>Subscribe to a new movie</button><br></br>
         <br></br>
         {newsub?
         <Newsubs movies={allmovies} addsub={Addsub} cancel={Cancel}/>
@@ -113,7 +113,7 @@ function MovieSubs(props) {
                     <span className={"movielist"} onClick={showmovie}>{user.name}</span> : {user.date}
                 </li>
             })}
-        </ul>:<p>no movies has been set to watch</p>:null}
+        </ul>:<p>no movies has been listed</p>:null}
 </div>
 }
 

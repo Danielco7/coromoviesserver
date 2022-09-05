@@ -59,7 +59,7 @@ function SearchBar({ placeholder, data, input }) {
           {filteredData.slice(0, 20).map(function(value, key)  {
 
                   return    <div className="dataItem" onClick={()=>Continue(value)} target="_blank">
-                  <p>{value.original_title}</p> 
+                  <p>{value.title}</p> 
                 </div>;
           })}
         </div>

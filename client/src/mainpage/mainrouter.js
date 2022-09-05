@@ -18,8 +18,8 @@ function MainRouter({ match ,history}) {
     const [User_To_Show, setUser_To_Show] = useState({})
     const [Movie_To_Show, setMovie_To_Show] = useState({})
     const [info, setInfo] = useState(false)
-    const [messge1, setMessge1] = useState('This is the movies page where you can view movies and their subscribers, add a new movie, and  edit&delte and exist movies with your given permission. ')
-    const [messge2, setMessge2] = useState('To add, edit and delete a movie you simply click on the buttons that tell that, and if you want to view subscribers just click which movie you like. ')
+    const [messge1, setMessge1] = useState('This is a page for movies where you can: view movies and their subscribers, add a new movie, edit & delete an existing movie with your given permission. ')
+    const [messge2, setMessge2] = useState("To add, edit and delete a movie, you simply click on the specific button. And if you want to view subscribers for a movie just click on that movie. ")
 
 
     useEffect(() => {
@@ -50,22 +50,22 @@ function MainRouter({ match ,history}) {
     setMovies(true)
     setSubs(false)
     setUsers(false)
-    setMessge1("This is the movie's page where you can view movies and their subscribers, add a new movie, and  edit and delete and existing movies with your given permission.")
-    setMessge2('To add, edit and delete a movie you simply click on the buttons that tell that, and if you want to view subscribers just click which movie you like.  ')
+    setMessge1("This is a page for movies where you can: view movies and their subscribers, add a new movie, edit & delete an existing movie with your given permission. ")
+    setMessge2('To add, edit and delete a movie, you simply click on the specific button. And if you want to view subscribers for a movie just click on that movie.')
     }
     const Subs= async()=> {
     setMovies(false)
     setSubs(true)
     setUsers(false)
-    setMessge1("This is the member's page where you mostly add new members and subscribe them to a movie they want in addition you can edit and delete existing member with your given permission.")
-    setMessge2('To add, edit and delete a member you simply click on the buttons that tell that, and if you want to subscribe a member to a movie there is a scion for it inside each member card.')
+    setMessge1("This is the member's page where you mostly add new members and subscribe them to a movie they want. In addition you can edit or delete any existing member with your given permission.")
+    setMessge2('To add, edit or delete a member you simply click on the specific button. And if you want to subscribe a member to a movie, there is a section inside each member card.')
     }
     const Users= async()=> {
     setMovies(false)
     setSubs(false)
     setUsers(true)
-    setMessge1("This is the employee's page where you can control and manage your employees, this page is mostly for the manager to add new workers to the company, edit and delete existing workers and their permissions.")
-    setMessge2('If you would like to add, edit and delete an employee you simply click on the buttons that tell that the permissions you give to each employee will determine the access they have to the compeny site.')
+    setMessge1("This is the employee's page where you can control and manage your employees. This page is mostly for the manager to add new employees to the company or edit and delete existing employees and their permissions.")
+    setMessge2('If you would like to add, edit or delete an employee you simply click on relevant button. The permissions you give to each employee will determine the access they have to the company site.')
     } 
      const logout= async()=> history.push(`/`);
 

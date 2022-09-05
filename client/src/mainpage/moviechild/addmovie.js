@@ -46,7 +46,8 @@ const Check_And_Send =async()=> {
       
       const inputdata=async(e)=> {
         setgenresErr([])
-        setnameErr(e.original_title)
+        console.log(e);
+        setnameErr(e.title)
         for (let i = 0; i < e.genre_ids.length; i++) {
             const element = e.genre_ids[i];
             const { data } = await getAll(urgeners)
