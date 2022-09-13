@@ -1,11 +1,10 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const subsschema = new Schema({
-    memberId:String,
-    movies:Array,
-    
-})
+  memberId: String,
+  movies: Array,
+});
 
-module.exports = mongoose.model('Subs', subsschema);
+module.exports = mongoose.model("Subs", subsschema);

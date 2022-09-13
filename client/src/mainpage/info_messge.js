@@ -1,28 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import Logo from '../imgs/love_info.svg'
+import React, { useEffect, useState } from "react";
+import Logo from "../imgs/love_info.svg";
 function Info_messge(props) {
-    
-    useEffect(() => {
-        async function getdate() {
-     }
-         getdate()
-     }, [])  
-     
-     async function Edit() {
-        props.Edit(props.user)
-    }
-    async function Delete() {
-        props.Delete(props.user)
-        
-    }
+  useEffect(() => {
+    async function getdate() {}
+    getdate();
+  }, []);
 
-    return <div className='infomessge'>
-        <div className="tooltiptext"><img id='info_svg' className='svg_add_movie' src={Logo}/><h5>
-            {props.messge1}<br></br><br></br>{props.messge2}</h5></div>
+  async function Edit() {
+    props.Edit(props.user);
+  }
+  async function Delete() {
+    props.Delete(props.user);
+  }
 
-            </div>
-        
-    }
-    
+  return (
+    <div className="infomessge">
+      <div className="tooltiptext">
+        <img id="info_svg" className="svg_add_movie" src={Logo} />
+        <h5>
+          {props.messge1}
+          <br></br>
+          <br></br>
+          {props.messge2}
+        </h5>
+      </div>
+    </div>
+  );
+}
 
-    export default Info_messge
+export default Info_messge;
