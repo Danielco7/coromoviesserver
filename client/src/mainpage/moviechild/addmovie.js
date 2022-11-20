@@ -45,12 +45,10 @@ function AddMovie(props) {
 
   const inputdata = async (e) => {
     setgenresErr([]);
-    console.log(e);
     setnameErr(e.title);
     for (let i = 0; i < e.genre_ids.length; i++) {
       const element = e.genre_ids[i];
       const { data } = await getAll(urgeners);
-      console.log(element);
       const found = data.genres.find(({ id }) => id == element);
       setgenresErr((genresErr) => [...genresErr, `${found.name} `]);
     }

@@ -15,7 +15,6 @@ function ShowMovie(props) {
   useEffect(() => {
     async function getmovie() {
       const { data } = await getAll(urlmovie + props.movie.id + api);
-      console.log(data);
       setmoviedata(data);
     }
     getmovie();

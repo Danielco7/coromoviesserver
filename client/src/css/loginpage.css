@@ -76,7 +76,6 @@
   text-align: center;
   font-size: 60px;
   font-weight: 500;
-  text-transform: capitalize;
   color: #fff;
 }
 
@@ -90,7 +89,6 @@
   width: 100%;
   margin-top: 30px;
   padding: 5px 10px;
-  text-transform: capitalize;
   border: none;
   border-radius: 5px;
   height: 30px;
@@ -106,7 +104,6 @@
   border: none;
   padding: 10px 40px;
   font-size: 15px;
-  text-transform: capitalize;
   display: block;
   margin: auto;
   color: #8a8a8a;
@@ -123,7 +120,6 @@
 .link {
   text-align: center;
   color: #8a8a8a;
-  text-transform: capitalize;
   text-decoration: underline;
   cursor: pointer;
   transition: 0.5s;

@@ -8,9 +8,6 @@ import {
 } from "react-router-dom";
 import { getAll, updateObj, addObj, deleteObj } from "../utils";
 import "../css/loginpage.css";
-import MovieJson from "../api/movies";
-import MemberJson from "../api/members";
-import WorkersJson from "../api/workers";
 import Logo from "../imgs/love_info.svg";
 
 const urlmovie = "https://coromovies.herokuapp.com/api/Movies";
@@ -65,7 +62,7 @@ function Logging({ history }) {
 
       if (found == undefined)
         alert(
-          "the Username you try to reach doesnot exists in our system please try another"
+          "The Username you try to reach doesn't exist in our system please try another"
         );
       else Signin();
     } else {
@@ -102,20 +99,6 @@ function Logging({ history }) {
         }
       }
     };
-    const add = async () => {
-      for (let i = 0; i < MovieJson.length; i++) {
-        const element = MovieJson[i];
-        const { data: data11 } = await addObj(urlmovie, element);
-      }
-      for (let i = 0; i < MemberJson.length; i++) {
-        const element = MemberJson[i];
-        const { data: data22 } = await addObj(urlmembers, element);
-      }
-      for (let i = 0; i < WorkersJson.length; i++) {
-        const element = WorkersJson[i];
-        const { data: data33 } = await addObj(url, element);
-      }
-    };
 
     // await remove()
     // await add()
@@ -129,13 +112,13 @@ function Logging({ history }) {
     });
     if (usertobefound == undefined) {
       alert(
-        "the username you try to reach doesnot exists in our system please try another"
+        "The Username you try to reach doesn't exist in our system please try another"
       );
     } else {
       if (usertobefound.password == "") {
         if (user.password.length < 6)
           alert(
-            "your password is too short please make sure its over 6 letters"
+            "Your password is too short please make sure its over 6 letters"
           );
         else {
           let NewUser = usertobefound;
@@ -143,7 +126,7 @@ function Logging({ history }) {
           const id = NewUser._id;
 
           const { data: data2 } = await updateObj(url, id, NewUser);
-          alert("your update has been saved!");
+          alert("Your update has been saved!");
           if (window.innerWidth > 800) {
             setformContainer(`0%`);
           }
@@ -156,7 +139,7 @@ function Logging({ history }) {
         }
       } else
         alert(
-          "it seems that the username you try to reach is allready taken by somone else and its not a new user anymore"
+          "it seems that the username you try to reach is already taken by someone else and it's not a new user anymore"
         );
     }
   };
@@ -194,14 +177,15 @@ function Logging({ history }) {
             <img id="info_svg" className="svg_add_movie" src={Logo} />
             <h1>Hello and welcome </h1>{" "}
             <h5>
-              This site is a multi function workers' inviorment that orgnize
-              movies, members and employes in one place. I will be your guide.
-              Any given moment you can simply hover at the info icon as shown.
+              This site is a multi-function workers' environment that organizes
+              movies, members, and employes in one place. I will be your guide.
+              At any given moment you can simply hover over the info icon as
+              shown.
               <sup>&#9432;</sup>
               <br></br>
               Here employes can log in to their account. If you don't have an
-              account you need to ask for manager's help or simply log in as a
-              guest.
+              the account you need to ask for the manager's help or simply log
+              in as a guest.
             </h5>
           </div>
         </span>

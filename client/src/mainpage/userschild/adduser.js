@@ -168,7 +168,7 @@ function AddUser(props) {
     <div className="add_new_user">
       <div id="AddUser" className="AddMovie" style={{ minheight: "140px" }}>
         <img className="svg_add_movie" src={Logo} />
-        <h1> New User: </h1>
+        <h1> New worker: </h1>
         <div className="AddMovieInput_cont">
           <div className="add_info_headers">FirstName: </div>
           <input

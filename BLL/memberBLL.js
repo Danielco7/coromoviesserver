@@ -67,7 +67,6 @@ const updateMember = (id, memberToUpdate) => {
   });
 };
 
-// Delete an existing car
 const deleteMember = (id) => {
   return new Promise((resolve, reject) => {
     Member.findByIdAndDelete(id, (err) => {

@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from "axios";
 
 const getAll = (url) => Axios.get(url);
 
@@ -12,6 +12,6 @@ const deleteObj = (url, id) => Axios.delete(`${url}/${id}`);
 
 // const deleteAll = (url) => db.collection.remove(url);
 
-const gettodosbyid=(url,id)=>Axios.get(`${url}?userId=${id}`)
+const gettodosbyid = (url, id) => Axios.get(`${url}?userId=${id}`);
 
-export { getAll, getById, addObj, updateObj, deleteObj,gettodosbyid };
+export { getAll, getById, addObj, updateObj, deleteObj, gettodosbyid };

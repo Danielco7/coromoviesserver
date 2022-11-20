@@ -46,7 +46,6 @@ function MoviesPage(props) {
       setBackUpMoviesArry(data);
       if (counter === 0) {
         setDisplayAllMovies(true);
-        console.log("2");
       }
     };
     const checkpossibility = async () => {
@@ -87,8 +86,6 @@ function MoviesPage(props) {
     setDisplayAddMoviePage(false);
     setDisplayAllMovies(true);
     const found = Movies.find(({ image }) => image == e.image);
-    console.log(e.image);
-    console.log(found);
     if (found == undefined) {
       const { data: data1 } = await addObj(urlmovie, e);
       const { data } = await getAll(urlmovie);
@@ -143,7 +140,6 @@ function MoviesPage(props) {
     await setMovieToShow("");
     await setMovieToShow(e);
     await setDisplayAllMovies(false);
-    console.log("1");
     window.scrollTo(0, 1000);
   };
 
@@ -153,8 +149,6 @@ function MoviesPage(props) {
         <div id="imgbackground" />
         <h1 id="titlee">Movies</h1>
         <div>
-          {/* {DisplayAddMoviePage?<button onClick={allmovies} className="btnn_allmovies">all movies</button>:null}
-        {DisplayEditMoviePage?<button onClick={allmovies} className="btnn_allmovies">all movies</button>:null} */}
           {DisplayAllMovies ? (
             props.user.admin ? (
               <button onClick={addmovie} className="btnn">
