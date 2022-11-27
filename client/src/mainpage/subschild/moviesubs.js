@@ -65,11 +65,12 @@ function MovieSubs(props) {
       memberId: props.member._id,
       movies: moviearr,
     };
-
+    let key = {};
+    key = localStorage.getItem("token");
     if (suber._id == undefined) {
-      const { data } = await addObj(urlsubs, obj);
+      const { data } = await addObj(urlsubs, obj, key);
     } else {
-      const { data } = await updateObj(urlsubs, suber._id, obj);
+      const { data } = await updateObj(urlsubs, suber._id, obj, key);
     }
     setnewsub(false);
     const { data } = await getAll(urlsubs);

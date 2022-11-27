@@ -12,7 +12,7 @@ import Logo from "../imgs/love_info.svg";
 
 const urlmovie = "https://coromovies.herokuapp.com/api/Movies";
 const urlmembers = "https://coromovies.herokuapp.com/api/Members";
-const url = "https://coromovies.herokuapp.com/api/Users";
+const url = "http://localhost:3001/api/Users";
 
 function Logging({ history }) {
   const [User, setUser] = useState({ Username: "", Password: "" });
@@ -53,18 +53,35 @@ function Logging({ history }) {
     }
     if (form == "register") {
       const { data } = await getAll(url);
-      const found = data.find(function (element) {
-        return (
-          element.username === User.Username &&
-          element.password === User.Password
-        );
+      let found = data.find(function (element) {
+        return element.username === User.Username;
       });
 
       if (found == undefined)
         alert(
           "The Username you try to reach doesn't exist in our system please try another"
         );
-      else Signin();
+      else {
+        found.password = User.Password;
+        const requestOptions = (url, NewUser) => {
+          fetch(`${url}/login`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(NewUser),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.msg === "all good") {
+                localStorage.setItem("token", data.token);
+                Signin();
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        };
+        requestOptions(url, found);
+      }
     } else {
       Changepassword();
     }
@@ -99,9 +116,6 @@ function Logging({ history }) {
         }
       }
     };
-
-    // await remove()
-    // await add()
     history.push(`/main/${User.Username}`);
   };
 
@@ -125,7 +139,14 @@ function Logging({ history }) {
           NewUser.password = user.password;
           const id = NewUser._id;
 
-          const { data: data2 } = await updateObj(url, id, NewUser);
+          const requestOptions = (url, id, NewUser) => {
+            fetch(`${url}/${id}`, {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ password: NewUser.password }),
+            });
+          };
+          requestOptions(url, id, NewUser);
           alert("Your update has been saved!");
           if (window.innerWidth > 800) {
             setformContainer(`0%`);
@@ -164,7 +185,38 @@ function Logging({ history }) {
   };
 
   const login_guest = async (form) => {
-    history.push(`/main/${"onlineguest"}`);
+    const { data } = await getAll(url);
+    let found = data.find(function (element) {
+      return element.username === "onlineguest";
+    });
+    if (found == undefined)
+      alert(
+        "The Username you try to reach doesn't exist in our system please try another"
+      );
+    else {
+      found.password = User.Password;
+      const requestOptions = (url, NewUser) => {
+        NewUser.password = "123123123";
+        fetch(`${url}/login`, {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(NewUser),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.msg === "all good") {
+              localStorage.setItem("token", data.token);
+              history.push(`/main/${"onlineguest"}`);
+            } else {
+              alert(data.msg);
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      };
+      requestOptions(url, found);
+    }
   };
 
   return (

@@ -65,10 +65,16 @@ function SubsPage(props) {
   const addnewmember = async (e) => {
     setcheckaddmember(false);
     setcheckallmembers(true);
-    const { data1 } = await addObj(urlmembers, e);
-    const { data } = await getAll(urlmembers);
-    setMembers(data);
-    setBackUpMembersArry(data);
+    let key = {}
+    key = localStorage.getItem("token");
+    try {
+      const { data1 } = await addObj(urlmembers, e, key);
+      const { data } = await getAll(urlmembers);
+      setMembers(data);
+      setBackUpMembersArry(data); 
+    } catch (error) {
+      alert(error)
+    }
   };
 
   const Delete = async (e) => {
@@ -78,10 +84,17 @@ function SubsPage(props) {
       if (filtered != undefined) {
         const { data: data2 } = await deleteObj(urlsubs, filtered._id);
       }
-      const { data: data3 } = await deleteObj(urlmembers, e._id);
-      const { data: data4 } = await getAll(urlmembers);
-      setMembers(data4);
-      setBackUpMembersArry(data4);
+      let key = {}
+      key = localStorage.getItem("token");
+      try {
+        const { data: data3 } = await deleteObj(urlmembers, e._id,key);
+        const { data: data4 } = await getAll(urlmembers);
+        setMembers(data4);
+        setBackUpMembersArry(data4);
+      } catch (error) {
+        alert(error)
+      }
+
     } else {
       alert("the number of members is less then allowed");
     }
@@ -96,12 +109,21 @@ function SubsPage(props) {
   };
 
   const updatemember = async (e) => {
-    const { data: data1 } = await updateObj(urlmembers, e._id, e);
-    const { data } = await getAll(urlmembers);
-    setMembers(data);
-    setcheckallmembers(true);
-    setcheckaddmember(false);
-    setcheckeditmember(false);
+    let key = {}
+    key = localStorage.getItem("token");
+    try {
+      const { data: data1 } = await updateObj(urlmembers, e._id, e,key);
+      const { data } = await getAll(urlmembers);
+      setMembers(data);
+      setcheckallmembers(true);
+      setcheckaddmember(false);
+      setcheckeditmember(false);
+    } catch (error) {
+      alert(error)
+      setcheckallmembers(true);
+      setcheckaddmember(false);
+      setcheckeditmember(false);
+    }
   };
 
   const showmovie = async (e) => props.Movie_To_Show(e);

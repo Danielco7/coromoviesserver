@@ -13,6 +13,7 @@ const usersurl = "https://coromovies.herokuapp.com/api/Users";
 
 function UsersPage(props) {
   const [Users, setusers] = useState({});
+  const [allUsers, setallusers] = useState({});
   const [usertoedit, setuser] = useState({});
   const [checkusers, setcheckusers] = useState(false);
   const [checkedit, setcheckedit] = useState(false);
@@ -21,6 +22,7 @@ function UsersPage(props) {
   useEffect(() => {
     async function getusers() {
       const { data } = await getAll(usersurl);
+      await setallusers(data);
       data.splice(0, 2);
       await setusers(data);
       await setcheckusers(true);
@@ -54,27 +56,51 @@ function UsersPage(props) {
     await setcheckusers(false);
   }
   async function Update(e) {
-    const { data } = await updateObj(usersurl, e._id, e);
-
-    // await setuser(e)
-    // await setcheckedit(true)
-    // await setcheckusers(false)
-  }
-  async function Add(e) {
-    const { data2 } = await addObj(usersurl, e);
+    let key = {}
+    key = localStorage.getItem("token");
+    try { const { data2 } = await updateObj(usersurl, e._id, e,key);
     const { data } = await getAll(usersurl);
     data.splice(0, 2);
     await setusers(data);
+    await setcheckusers(false);
+    await setcheckusers(true);
+  }catch(error){
+    alert(error)
     await setcheckusers(true);
     await setchecknewuser(false);
     await setcheckedit(false);
   }
-  async function Delete(e) {
-    if (Users.length > 5) {
-      const { data2 } = await deleteObj(usersurl, e._id);
+}
+  async function Add(e) {
+    let key = {}
+    key = localStorage.getItem("token");
+    try {
+      const { data2 } = await addObj(usersurl, e, key);
       const { data } = await getAll(usersurl);
       data.splice(0, 2);
       await setusers(data);
+      await setcheckusers(true);
+      await setchecknewuser(false);
+      await setcheckedit(false);
+    } catch (error) {
+      alert(error)
+    await setcheckusers(true);
+    await setchecknewuser(false);
+    await setcheckedit(false);
+    }
+  }
+  async function Delete(e) {
+    if (Users.length > 5) {
+      let key = {}
+      key = localStorage.getItem("token");
+      try {
+        const { data2 } = await deleteObj(usersurl, e._id,key);
+        const { data } = await getAll(usersurl);
+        data.splice(0, 2);
+        await setusers(data);
+      } catch (error) {
+        alert(error)
+      }
     } else {
       alert("the number of users is less then allowed");
     }
@@ -169,7 +195,7 @@ function UsersPage(props) {
       ) : null}
       {checknewuser ? (
         <div className="add_movie_continer">
-          <AddUser add={Add} cancel={allusers} />
+          <AddUser add={Add} cancel={allusers} allusers={allUsers} />
         </div>
       ) : null}
     </div>

@@ -10,6 +10,7 @@ import EditMovie from "./editmovie";
 import ShowMovie from "./Movieshower";
 import Logo from "../../imgs/love_info.svg";
 import Info_messge from "../info_messge";
+import { get } from "mongoose";
 
 // import Movieurl from '../../api/movies'
 
@@ -87,20 +88,32 @@ function MoviesPage(props) {
     setDisplayAllMovies(true);
     const found = Movies.find(({ image }) => image == e.image);
     if (found == undefined) {
-      const { data: data1 } = await addObj(urlmovie, e);
-      const { data } = await getAll(urlmovie);
-      setMovies(data);
-      setBackUpMoviesArry(data);
+      let key = {};
+      key = localStorage.getItem("token");
+      try {
+        const { data2 } = await addObj(urlmovie, e, key);
+        const { data } = await getAll(urlmovie);
+        setMovies(data);
+        setBackUpMoviesArry(data);
+      } catch (error) {
+        alert(error);
+      }
     } else {
       alert("This movie is allready in the collection");
     }
   };
-  const Delete = async (e, value2) => {
+  const Delete = async (e) => {
     if (BackUpMoviesArry.length > 7) {
-      const { data: data1 } = await deleteObj(urlmovie, e._id);
-      const { data } = await getAll(urlmovie);
-      setMovies(data);
-      setBackUpMoviesArry(data);
+      let key = {};
+      key = localStorage.getItem("token");
+      try {
+        const { data: data1 } = await deleteObj(urlmovie, e._id, key);
+        const { data } = await getAll(urlmovie);
+        setMovies(data);
+        setBackUpMoviesArry(data);
+      } catch (error) {
+        alert(error);
+      }
     } else {
       alert("the number of movies is less then allowed ");
     }
@@ -127,12 +140,27 @@ function MoviesPage(props) {
     setMovies(BackUpMoviesArry);
   };
   const updatemovie = async (e) => {
-    const { data: data1 } = await updateObj(urlmovie, e._id, e);
-    const { data } = await getAll(urlmovie);
-    setMovies(data);
-    setDisplayAllMovies(true);
-    setDisplayAddMoviePage(false);
-    setDisplayEditMoviePage(false);
+    let key = {};
+    key = localStorage.getItem("token");
+    try {
+      const { data2 } = await updateObj(urlmovie, e._id, e, key);
+      const { data } = await getAll(urlmovie);
+      setMovies(data);
+      setDisplayAllMovies(true);
+      setDisplayAddMoviePage(false);
+      setDisplayEditMoviePage(false);
+    } catch (error) {
+      alert(error);
+      setDisplayAllMovies(true);
+      setDisplayAddMoviePage(false);
+      setDisplayEditMoviePage(false);
+    }
+    // const { data: data1 } = await updateObj(urlmovie, e._id, e);
+    // const { data } = await getAll(urlmovie);
+    // setMovies(data);
+    // setDisplayAllMovies(true);
+    // setDisplayAddMoviePage(false);
+    // setDisplayEditMoviePage(false);
   };
   const membertoshow = async (e) => props.showmember(e);
 

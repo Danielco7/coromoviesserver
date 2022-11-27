@@ -1,6 +1,7 @@
 const express = require("express");
 const movieBLL = require("../BLL/movieBLL");
 const router = express.Router();
+const { authtoken } = require("../auth/authToken");
 
 router.get("/", async (req, res) => {
   try {
@@ -22,7 +23,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authtoken, async (req, res) => {
   try {
     const movie = req.body;
     const result = await movieBLL.addMovie(movie);
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authtoken, async (req, res) => {
   try {
     const id = req.params.id;
     const movie = req.body;
@@ -43,7 +44,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authtoken, async (req, res) => {
   try {
     const id = req.params.id;
     const result = await movieBLL.deleteMovie(id);

@@ -44,25 +44,38 @@ const addUser = (newUser) => {
   });
 };
 
+const loginUser = (id, user) => {
+  return new Promise((resolve, reject) => {
+    User.findByIdAndUpdate(id, user, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        User.find([], (err, users) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(users);
+          }
+        });
+      }
+    });
+  });
+};
+
 const updateUser = (id, userToUpdate) => {
   return new Promise((resolve, reject) => {
     User.findByIdAndUpdate(id, userToUpdate, (err) => {
       if (err) {
         reject(err);
-      } else
+      } else {
         User.find([], (err, users) => {
           if (err) {
             reject(err);
           } else {
-            User.find([], (err, users) => {
-              if (err) {
-                reject(err);
-              } else {
-                resolve(users);
-              }
-            });
+            resolve(users);
           }
         });
+      }
     });
   });
 };

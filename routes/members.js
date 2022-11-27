@@ -1,6 +1,7 @@
 const express = require("express");
 const memberBLL = require("../BLL/memberBLL");
 const router = express.Router();
+const { authtoken } = require("../auth/authToken");
 
 router.get("/", async (req, res) => {
   try {
@@ -21,7 +22,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authtoken, async (req, res) => {
   try {
     const member = req.body;
     const result = await memberBLL.addMember(member);
@@ -31,7 +32,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", authtoken, async (req, res) => {
   try {
     const id = req.params.id;
     const member = req.body;
@@ -42,7 +43,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authtoken, async (req, res) => {
   try {
     const id = req.params.id;
     const result = await memberBLL.deleteMember(id);

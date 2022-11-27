@@ -67,6 +67,12 @@ function AddUser(props) {
       setusernameErr(usernameError);
       return false;
     }
+    let user = await props.allusers.find(element => element.username == username)
+    if (user !== undefined) {
+      usernameError = "Username is allready taken";
+      setusernameErr(usernameError);
+      return false
+    }
     var window1 = document.getElementById("AddUser");
     var window2 = document.getElementById("AddUser2");
     window1.style.animation = "hide_left1 0.8s";

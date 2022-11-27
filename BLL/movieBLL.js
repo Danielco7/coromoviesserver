@@ -25,7 +25,7 @@ const getMovieById = (id) => {
 };
 
 const addMovie = (newMovie) => {
-  return new Promise((resolve, reject) => {
+  return new  Promise((resolve, reject) => {
     const movie = new Movies(newMovie);
 
     movie.save((err) => {
@@ -49,11 +49,7 @@ const updateMovie = (id, MoviesToUpdate) => {
     Movies.findByIdAndUpdate(id, MoviesToUpdate, (err) => {
       if (err) {
         reject(err);
-      } else
-        Movies.find([], (err, movies) => {
-          if (err) {
-            reject(err);
-          } else {
+      } else{
             Movies.find([], (err, movies) => {
               if (err) {
                 reject(err);
@@ -61,8 +57,7 @@ const updateMovie = (id, MoviesToUpdate) => {
                 resolve(movies);
               }
             });
-          }
-        });
+      }
     });
   });
 };
