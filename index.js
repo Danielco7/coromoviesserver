@@ -27,7 +27,7 @@ app.use("/api/Members", memberrouts);
 app.use("/api/Movies", movierouts);
 app.use("/api/Subs", subsrouts);
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
