@@ -12,7 +12,7 @@ import Logo from "../imgs/love_info.svg";
 
 const urlmovie = "https://coromovies.herokuapp.com/api/Movies";
 const urlmembers = "https://coromovies.herokuapp.com/api/Members";
-const url = "http://localhost:3001/api/Users";
+const url = "https://coromovies.herokuapp.com/api/Users";
 
 function Logging({ history }) {
   const [User, setUser] = useState({ Username: "", Password: "" });
