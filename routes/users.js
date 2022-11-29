@@ -33,6 +33,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", authtoken, async (req, res) => {
   try {
     let user = req.body;
+    const result = await usersBLL.addUser(user);
     res.send(result);
   } catch (error) {
     res.send(error);
