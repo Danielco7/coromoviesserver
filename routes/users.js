@@ -33,8 +33,6 @@ router.get("/:id", async (req, res) => {
 router.post("/", authtoken, async (req, res) => {
   try {
     let user = req.body;
-    user.password = await bcrypt.hash(user.password, 10);
-    const result = await usersBLL.addUser(user);
     res.send(result);
   } catch (error) {
     res.send(error);
